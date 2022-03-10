@@ -1,0 +1,90 @@
+
+.allPokemonPage {
+  text-align: center;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.allPokemonPage__title {
+  --title-color: var(--black);
+
+  color: var(--title-color);
+  margin: 1em;
+  font-size: 2em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  position: relative;
+  transition: all ease-in-out 300ms;
+}
+
+.allPokemonPage__title::after {
+  --title-underline-width: 16ch;
+  position: absolute;
+  content: "";
+  width: var(--title-underline-width);
+  height: 2px;
+  background: var(--title-color);
+  bottom: 0;
+  left: calc((50% - (var(--title-underline-width) / 2)));
+  transition: all ease-in-out 300ms;
+}
+
+.allPokemonPage__title--dark {
+  --title-color: var(--white);
+}
+
+.allPokemonPage__title--light {
+  --title-color: var(--black);
+}
+
+.themeChange {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 10;
+}
+
+.allPokemonPage__grid {
+  max-width: 85em;
+  display: grid;
+  gap: 1em;
+  margin: 0 1em;
+}
+
+@media screen and (min-width: 85em) {
+  .allPokemonPage__grid {
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .pokemonCard {
+    flex-direction: column;
+    max-width: 30ch;
+  }
+
+  .pokemonCard__info {
+    padding: 1em;
+    text-align: center;
+  }
+
+  .allPokemonPage__grid {
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  }
+}
+
+.allPokemonPage__button {
+  box-sizing: border-box;
+  font-weight: bold;
+  color: var(--white);
+  background: var(--blue);
+  border: none;
+  border-radius: 1em;
+  box-shadow: none;
+  padding: 1em;
+  margin: 1em;
+  transition: all ease-in-out 300ms;
+}
+
+.allPokemonPage__button:hover {
+  background: var(--black);
+}
