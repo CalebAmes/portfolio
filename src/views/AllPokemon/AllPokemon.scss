@@ -28,6 +28,45 @@
   transition: all ease-in-out 300ms;
 }
 
+.caleb_card_container {
+  background-color: var(--user-card-background);
+  width: 100%;
+  display: flex;
+  margin: 2em 0;
+  align-items: center;
+  justify-content: center;
+}
+.caleb_card {
+  max-width: 85em;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+
+  .caleb_card-profile-image {
+    max-width: 20em;
+    mix-blend-mode: darken;
+    border-radius: 1em;
+  }
+  .caleb_card__text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: space-between;
+    text-align: left;
+    padding: 1em;
+    .caleb_card__text-title {
+      padding-bottom: 1em;
+      color: var(--red);
+    }
+    .caleb_card__text-body {
+      color: var(--black)
+    }
+  }
+}
+
 .allPokemonPage__title--dark {
   --title-color: var(--white);
 }
@@ -57,6 +96,10 @@
 }
 
 @media screen and (min-width: 50em) {
+  .caleb_card {
+    flex-direction: row;
+  }
+
   .pokemonCard {
     flex-direction: column;
     max-width: 30ch;
