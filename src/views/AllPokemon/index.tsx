@@ -133,15 +133,17 @@ const AllPokemon = () => {
           Blue
         </button>
         <button
+          style={pageFontSize >= 20 ? { background: 'red' } : {}}
           onClick={() => setPageFontSize(() => pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)} className="allPokemonPage__button"
         >
-          ++ {pageFontSize}
+          <i className="fa-solid fa-magnifying-glass-plus"></i>
         </button>
         <button
+          style={pageFontSize <= 6 ? {background: 'red'} : {}}
           onClick={() => setPageFontSize(() => pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)}
           className="allPokemonPage__button"
         >
-          --
+          <i className="fa-solid fa-magnifying-glass-minus"></i>
         </button>
         <button className="allPokemonPage__button" onClick={scrollBottom}>
           <i className="fa-solid fa-angles-down"></i>
