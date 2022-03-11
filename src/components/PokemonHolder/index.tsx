@@ -9,15 +9,16 @@ interface PokemonDetails {
 }
 
 const PokemonHolder: React.FC<PokemonDetails> = (props) => {
-
   const animationDelay = {
-    'animationDelay': `${props.count}00ms`
+    'animationDelay': `${props.count}00ms`,
   }
-
+  const flex = {
+  }
+  
   return (
     <div className="pokemonCard" style={animationDelay}>
       <div className="pokemonCard__image" >
-        <img className="pokemonCard__image-image"  src={process.env.PUBLIC_URL + props.image} alt="" />
+        <img className="pokemonCard__image-image" src={process.env.PUBLIC_URL + props.image} alt="" />
       </div>
       <div className="pokemonCard__info">
         <h1 className="pokemonCard__info-name">{props.name}</h1>

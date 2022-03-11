@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import PokemonHolder from "../../components/PokemonHolder";
-import { fetchPokemon } from "../../utils/api";
 import "./AllPokemon.scss";
 
 interface Pokemon {
@@ -17,7 +16,7 @@ const projects = [
   },
   {
     name: "Sniffs",
-    details: "Loosely inspired by Meetup.com, this application highlights how powerful a minimalistic and modern UI can be with a single page application.",
+    details: "Loosely inspired by Meetup.com, this application highlights how powerful a minimalist and modern UI can be with a single page application.",
     image: "/images/thumbs/03.gif"
   },
   {
@@ -33,7 +32,6 @@ const projects = [
 ]
 
 const AllPokemon = () => {
-  const [offset, setOffset] = useState(25);
   const [theme, setTheme] = useState<string>("light");
   const grid = useRef<any>(null);
   const top = useRef<any>(null);
@@ -136,6 +134,9 @@ const AllPokemon = () => {
             />
           </div>
         ))}
+      </div>
+      <div className="more_info">
+        <p>I am a tinkerer first. If I can take it apart and see how it works, chances are I have. If I can modify it, chances are that I will. My preferred tools are JavaScript, React, Redux, Express, Sequelize, and SQL however I also enjoy Python and how easy it makes working with data, especially when paired with Flask and SQLAlchemy. This said I can learn anything and am always eager for the challenge. Send me a message and let's get the conversation started.</p>
       </div>
       <div className="spotify">
         <h2 className="spotify_title">Currently Listening on Spotify</h2>

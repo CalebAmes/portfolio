@@ -91,8 +91,9 @@
   }
 
   .pokemonCard {
-    flex-direction: column;
-    max-width: 30ch;
+    flex-direction: row;
+    min-width: 35em
+    // max-width: 30ch;
   }
 
   .pokemonCard__info {
@@ -100,8 +101,14 @@
     text-align: center;
   }
 
+  .pokemonCard__image {
+    max-width: 20em;
+    min-width: 20em;
+  }
+
   .allPokemonPage__grid {
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(35em, 1fr));
+    padding: 2em 0;
   }
 }
 
@@ -123,6 +130,13 @@
 }
 
 .spotify_title{
-  // color: white !important;
-  color: var(--title-text)
+  color: var(--title-text);
+  padding: 2em;
+}
+
+.more_info {
+  color: var(--title-text);
+  padding: 2em;
+  max-width: 85em;
+  margin: auto;
 }

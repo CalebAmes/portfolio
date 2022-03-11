@@ -34,6 +34,34 @@ body {
   --title-text: var(--black)
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+	height: 5px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--body-background);
+	border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--title-text);
+	border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+  width: 10em;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
