@@ -34,6 +34,14 @@ body {
   --title-text: var(--black)
 }
 
+.red-background {
+  --body-background: var(--red)
+}
+
+.blue-background {
+  --body-background: var(--blue)
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;

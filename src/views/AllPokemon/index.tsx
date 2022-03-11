@@ -33,6 +33,7 @@ const projects = [
 
 const AllPokemon = () => {
   const [theme, setTheme] = useState<string>("light");
+  const [pageFontSize, setPageFontSize] = useState<number>(12)
   const grid = useRef<any>(null);
   const top = useRef<any>(null);
 
@@ -44,33 +45,55 @@ const AllPokemon = () => {
     grid.current.lastChild.scrollIntoView({ behavior: "smooth" });
   };
 
-  const changeTheme = () => {
-    if (theme === "dark") setTheme("light")
-    else setTheme("dark")
+  const fontAdjuster = {
+    fontSize: `${pageFontSize}pt`,
+  }
+
+  const changeTheme = (e: any) => {
+    setTheme(e.target.value)
   };
 
   const themeHandler = () => {
-    const title = top.current;
     const body = document.body;
     if (theme === "dark") {
       body.classList.add("dark-background");
       body.classList.remove("light-background");
-      localStorage.setItem('pokedex', JSON.stringify({ theme: 'dark' }));
-    } else {
+      body.classList.remove("red-background");
+      body.classList.remove("blue-background");
+      localStorage.setItem('portfolio', JSON.stringify({ theme: 'dark' }));
+    } else if (theme === "light") {
       body.classList.add("light-background");
       body.classList.remove("dark-background");
-      localStorage.setItem('pokedex', JSON.stringify({
+      body.classList.remove("red-background");
+      body.classList.remove("blue-background");
+      localStorage.setItem('portfolio', JSON.stringify({
         theme: 'light'
+      }))
+    } else if (theme === "blue") {
+      body.classList.add("blue-background");
+      body.classList.remove("dark-background");
+      body.classList.remove("red-background");
+      body.classList.remove("light-background");
+      localStorage.setItem('portfolio', JSON.stringify({
+        theme: 'blue'
+      }))
+    } else if (theme === "red") {
+      body.classList.add("red-background");
+      body.classList.remove("dark-background");
+      body.classList.remove("blue-background");
+      body.classList.remove("light-background");
+      localStorage.setItem('portfolio', JSON.stringify({
+        theme: 'red'
       }))
     }
   }
 
   useEffect(() => {
-    let pokedex: any = localStorage.getItem('pokedex');
-    if (pokedex) {
-      pokedex = JSON.parse(pokedex)
+    let portfolio: any = localStorage.getItem('portfolio');
+    if (portfolio) {
+      portfolio = JSON.parse(portfolio)
 
-      setTheme(pokedex?.theme)
+      setTheme(portfolio?.theme)
     }
   }, []);
 
@@ -78,21 +101,53 @@ const AllPokemon = () => {
     themeHandler()
   }, [theme]);
 
-
   return (
-    <div className="allPokemonPage">
+    <div style={fontAdjuster} className="allPokemonPage">
       <div className="themeChange">
         <button
-          onClick={changeTheme}
+          value="dark"
+          onClick={e => changeTheme(e)}
           className="allPokemonPage__button"
         >
-          Theme
+          Dark
+        </button>
+        <button
+          value="light"
+          onClick={e => changeTheme(e)}
+          className="allPokemonPage__button"
+        >
+          Light
+        </button>
+        <button
+          value="red"
+          onClick={e => changeTheme(e)}
+          className="allPokemonPage__button"
+        >
+          Red
+        </button>
+        <button
+          value="blue"
+          onClick={e => changeTheme(e)}
+          className="allPokemonPage__button"
+        >
+          Blue
+        </button>
+        <button
+          onClick={() => setPageFontSize(() => pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)} className="allPokemonPage__button"
+        >
+          ++ {pageFontSize}
+        </button>
+        <button
+          onClick={() => setPageFontSize(() => pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)}
+          className="allPokemonPage__button"
+        >
+          --
         </button>
         <button className="allPokemonPage__button" onClick={scrollBottom}>
           <i className="fa-solid fa-angles-down"></i>
         </button>
       </div>
-      <h1 ref={top} className="allPokemonPage__title">
+      <h1 className="allPokemonPage__title">
         welcome
       </h1>
       <div className="caleb_card_container">

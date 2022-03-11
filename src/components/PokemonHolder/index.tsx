@@ -12,8 +12,6 @@ const PokemonHolder: React.FC<PokemonDetails> = (props) => {
   const animationDelay = {
     'animationDelay': `${props.count}00ms`,
   }
-  const flex = {
-  }
   
   return (
     <div className="pokemonCard" style={animationDelay}>
