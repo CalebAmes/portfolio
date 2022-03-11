@@ -17,7 +17,7 @@ const PokemonHolder: React.FC<PokemonDetails> = (props) => {
   return (
     <div className="pokemonCard" style={animationDelay}>
       <div className="pokemonCard__image" >
-        <img src={props.image} alt="" />
+        <img className="pokemonCard__image-image"  src={process.env.PUBLIC_URL + props.image} alt="" />
       </div>
       <div className="pokemonCard__info">
         <h1 className="pokemonCard__info-name">{props.name}</h1>

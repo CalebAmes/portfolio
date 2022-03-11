@@ -10,12 +10,14 @@ body {
 
   --blue: #3c91e6;
   --green: #9fd356;
-  --black: #342e37;
+  --gray: #342e37;
+  --black: #000;
   --white: #fafffd;
   --orange: #fa824c;
   --red: red;
   --user-card-background: #DFDED1;
   --body-background: var(--white);
+  --title-text: var(--black)
 
   font-size: 16px;
   background: var(--body-background);
@@ -23,11 +25,13 @@ body {
 }
 
 .dark-background {
-  --body-background: black;
+  --body-background: var(--gray);
+  --title-text: var(--white);
 }
 
 .light-background {
   --body-background: var(--white);
+  --title-text: var(--black)
 }
 
 code {

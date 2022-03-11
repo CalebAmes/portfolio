@@ -6,9 +6,7 @@
 }
 
 .allPokemonPage__title {
-  --title-color: var(--black);
-
-  color: var(--title-color);
+  color: var(--title-text);
   margin: 1em;
   font-size: 2em;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -67,14 +65,6 @@
   }
 }
 
-.allPokemonPage__title--dark {
-  --title-color: var(--white);
-}
-
-.allPokemonPage__title--light {
-  --title-color: var(--black);
-}
-
 .themeChange {
   position: fixed;
   top: 1em;
@@ -130,4 +120,9 @@
 
 .allPokemonPage__button:hover {
   background: var(--black);
+}
+
+.spotify_title{
+  // color: white !important;
+  color: var(--title-text)
 }
