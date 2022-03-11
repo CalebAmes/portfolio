@@ -24,7 +24,7 @@
 }
 
 .pokemonCard__image {
-  background-color: var(--blue);
+  background-color: var(--button);
   display: flex;
   justify-content: center;
   align-items: center;

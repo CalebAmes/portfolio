@@ -17,7 +17,8 @@ body {
   --red: red;
   --user-card-background: #DFDED1;
   --body-background: var(--white);
-  --title-text: var(--black)
+  --title-text: var(--black);
+  --button: var(--blue);
 
   font-size: 16px;
   background: var(--body-background);
@@ -35,11 +36,13 @@ body {
 }
 
 .red-background {
-  --body-background: var(--red)
+  --body-background: var(--red);
+  --button: var(--gray);
 }
 
 .blue-background {
-  --body-background: var(--blue)
+  --body-background: var(--blue);
+  --button: var(--gray);
 }
 
 /* width */
