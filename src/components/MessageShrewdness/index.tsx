@@ -11,7 +11,8 @@ interface MessageArray {
 
 const MessageShrewdness = () => {
   const [messages, setMessages] = useState<MessageArray[]>([])
-  
+  const [message, setMessage] = useState<any>("")
+
   useEffect(() => {
     socket.on(`chat_message_1`, () => {
       fetchMessages().then(res => setMessages(() => res))
@@ -22,21 +23,50 @@ const MessageShrewdness = () => {
     fetchMessages().then(res => setMessages(() => res))
   }, [])
 
-  console.log('this is messages outside of useEffect:', messages)
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(e.target.value)
+  }
+
+  const sendMessage = () => {
+    if (message.trim() === "") return;
+
+    const messageObject = {
+      messageText: message.trim(),
+      userId: 1,
+      channelId: 1,
+      messageImg: null,
+    }
+
+    socket.emit(`chatMessage`, messageObject);
+  };
+
+  const keyPress = (e: any) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      sendMessage()
+      setMessage("");
+    };
+  };
 
   return (
-    <>
+    <div className='messageContainer'>
       <div>MessageShrewdness</div>
       {
         messages.map((message, i) => {
-          console.log('this is message.messageText', message.messageText)
           return (
-          <div key={i} className="singleMessage">
-            <p>{message.messageText}</p>
-          </div>
-        )})
+            <div key={i} className="singleMessage">
+              <p>{message.messageText}</p>
+            </div>
+          )
+        })
       }
-    </>
+      <input
+        type="text"
+        maxLength={140}
+        onChange={inputHandler}
+        onKeyPress={keyPress}
+        value={message} />
+    </div>
   )
 }
 

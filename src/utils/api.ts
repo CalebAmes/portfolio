@@ -6,8 +6,6 @@ export const fetchMessages = async (id: number = 1) => {
   return data.channelMessage;
 }
 
-
-
 interface PokemonApi {
   name: string;
 }
