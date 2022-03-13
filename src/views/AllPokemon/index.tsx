@@ -101,6 +101,8 @@ const AllPokemon = () => {
     themeHandler()
   }, [theme]);
 
+  const dontClick = { background: 'red', cursor: 'not-allowed' } 
+
   return (
     <div style={fontAdjuster} className="allPokemonPage">
       <div className="themeChange">
@@ -133,13 +135,13 @@ const AllPokemon = () => {
           Blue
         </button>
         <button
-          style={pageFontSize >= 20 ? { background: 'red' } : {}}
+          style={pageFontSize >= 20 ? dontClick: {}}
           onClick={() => setPageFontSize(() => pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)} className="allPokemonPage__button"
         >
           <i className="fa-solid fa-magnifying-glass-plus"></i>
         </button>
         <button
-          style={pageFontSize <= 6 ? {background: 'red'} : {}}
+          style={pageFontSize <= 6 ? dontClick : {}}
           onClick={() => setPageFontSize(() => pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)}
           className="allPokemonPage__button"
         >
@@ -149,9 +151,7 @@ const AllPokemon = () => {
           <i className="fa-solid fa-angles-down"></i>
         </button>
       </div>
-      <h1 className="allPokemonPage__title">
-        welcome
-      </h1>
+      <div className="allPokemonPage__title"/>
       <div className="caleb_card_container">
         <div className="caleb_card">
           <div className="caleb_card__text">
