@@ -63,51 +63,53 @@ const AllPokemon = () => {
 
   return (
     <div style={fontAdjuster} className="allPokemonPage">
-      <div className="themeChange">
-        <button
-          value="dark"
-          onClick={e => changeTheme(e)}
-          className="allPokemonPage__button"
-        >
-          Dark
-        </button>
-        <button
-          value="light"
-          onClick={e => changeTheme(e)}
-          className="allPokemonPage__button"
-        >
-          Light
-        </button>
-        <button
-          value="red"
-          onClick={e => changeTheme(e)}
-          className="allPokemonPage__button"
-        >
-          Red
-        </button>
-        <button
-          value="blue"
-          onClick={e => changeTheme(e)}
-          className="allPokemonPage__button"
-        >
-          Blue
-        </button>
-        <button
-          style={pageFontSize >= 20 ? dontClick : {}}
-          onClick={() => setPageFontSize(() => pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)} className="allPokemonPage__button"
-        >
-          <i className="fa-solid fa-magnifying-glass-plus"></i>
-        </button>
-        <button
-          style={pageFontSize <= 6 ? dontClick : {}}
-          onClick={() => setPageFontSize(() => pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)}
-          className="allPokemonPage__button"
-        >
-          <i className="fa-solid fa-magnifying-glass-minus"></i>
-        </button>
-        <button className="allPokemonPage__button" onClick={scrollBottom}>
-          <i className="fa-solid fa-angles-down"></i>
-        </button>
+      <div className="topLeft">
+        <div className="buttonGroup">
+          <button
+            value="dark"
+            onClick={e => changeTheme(e)}
+            className="styled_button"
+          >
+            Dark
+          </button>
+          <button
+            value="light"
+            onClick={e => changeTheme(e)}
+            className="styled_button"
+          >
+            Light
+          </button>
+          <button
+            value="red"
+            onClick={e => changeTheme(e)}
+            className="styled_button"
+          >
+            Red
+          </button>
+          <button
+            value="blue"
+            onClick={e => changeTheme(e)}
+            className="styled_button"
+          >
+            Blue
+          </button>
+          <button
+            style={pageFontSize >= 20 ? dontClick : {}}
+            onClick={() => setPageFontSize(() => pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)} className="styled_button"
+          >
+            <i className="fa-solid fa-magnifying-glass-plus"></i>
+          </button>
+          <button
+            style={pageFontSize <= 6 ? dontClick : {}}
+            onClick={() => setPageFontSize(() => pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)}
+            className="styled_button"
+          >
+            <i className="fa-solid fa-magnifying-glass-minus"></i>
+          </button>
+          <button className="styled_button" onClick={scrollBottom}>
+            <i className="fa-solid fa-angles-down"></i>
+          </button>
+        </div>
       </div>
       <div className="allPokemonPage__title" />
       <div className="caleb_card_container">
@@ -115,6 +117,23 @@ const AllPokemon = () => {
           <div className="caleb_card__text">
             <h2 className="caleb_card__text-title">Caleb Ames Gilbert...</h2>
             <Icons />
+            <div className="myLinks">
+              <p>resume</p>
+              <div className="buttonGroup">
+                <a href="https://www.linkedin.com/in/caleb-gilbert-b522ab142/" target={"_blank"} className="styled_button">
+                  <i className="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/CalebAmes" target={"_blank"} className="styled_button">
+                  <i className="fa-brands fa-github-square"></i>
+                </a>
+                <a href="" target={"_blank"} className="styled_button">
+                  <i className="fa-solid fa-envelope"></i>
+                </a>
+                <a href="" target={"_blank"} className="styled_button">
+                  <i className="fa-solid fa-file-arrow-down"></i>
+                </a>
+              </div>
+            </div>
           </div>
           <img src={process.env.PUBLIC_URL + "/me.jpeg"} alt="Picture of Caleb" className="caleb_card-profile-image" />
         </div>
@@ -240,9 +259,13 @@ const AllPokemon = () => {
           </div>
         ))}
       </div>
-      <button ref={bottom} className="allPokemonPage__button" onClick={scrollTop}>
-        <i className="fa-solid fa-angles-up"></i>
-      </button>
+      <div className="bottomButton">
+        <div className="buttonGroup">
+          <button ref={bottom} className="styled_button" onClick={scrollTop}>
+            <i className="fa-solid fa-angles-up"></i>
+          </button>
+        </div>
+      </div>
     </div >
   );
 };
