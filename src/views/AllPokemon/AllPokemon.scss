@@ -149,6 +149,15 @@
   width: fit-content;
 }
 
+.showcase__link {
+  color: blue;
+  font-size: 1.2em;
+}
+
+.showcase__link:hover {
+  text-decoration: underline;
+}
+
 .topLeft {
   position: fixed;
   top: 1em;
@@ -175,14 +184,22 @@
   margin: 0 1em;
 }
 
+.messageShrewdness__div {
+  overflow-wrap: break-word;
+  p {
+    max-width: 40em;
+  }
+}
+
 @media screen and (min-width: 85em) {
   .allPokemonPage__grid {
     margin: auto;
   }
 
+
   .showcase__grid {
     transform-style: preserve-3d;
-    transform: perspective(50em) rotateY(25deg) translateX(2em);
+    transform: perspective(50em) rotateY(15deg) translateX(1.5em);
   }
 
   .showcase__grid-item:hover {
@@ -204,7 +221,7 @@
 
   .reverseGrid {
     transform-style: preserve-3d;
-    transform: perspective(50em) rotateY(-25deg) translateX(-2em);
+    transform: perspective(50em) rotateY(-15deg) translateX(-1em);
   }
 }
 

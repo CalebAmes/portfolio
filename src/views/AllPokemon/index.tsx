@@ -5,22 +5,28 @@ import "./AllPokemon.scss";
 import Icons from "./icons";
 import { themeHandler } from '../../components/index'
 
-interface Pokemon {
+interface Project {
   name: string;
   details: string;
   image: string;
+  live: string;
+  github: string;
 }
 
 const projects = [
   {
     name: "Instructables 2",
     details: "A clone of the popular site Instructables.com. Built to explore key features, like complex forms and dynamic DOM elements.",
-    image: "/images/thumbs/02.gif"
+    image: "/images/thumbs/02.gif",
+    live: "https://instructables2.herokuapp.com/",
+    github: "https://github.com/calebames/instructables",
   },
   {
     name: "Program Hunt",
     details: "Influenced by Product Hunt, this light application allows users to share their favorite software.",
-    image: "/images/thumbs/04.gif"
+    image: "/images/thumbs/04.gif",
+    live: "https://programhunt.herokuapp.com/",
+    github:"https://github.com/CalebAmes/ProgramHunt",
   },
 ]
 
@@ -126,10 +132,10 @@ const AllPokemon = () => {
                 <a href="https://github.com/CalebAmes" target={"_blank"} className="styled_button">
                   <i className="fa-brands fa-github-square"></i>
                 </a>
-                <a href="" target={"_blank"} className="styled_button">
+                <a href="mailto: caleb-gilbert@live.com" className="styled_button">
                   <i className="fa-solid fa-envelope"></i>
                 </a>
-                <a href="" target={"_blank"} className="styled_button">
+                <a href={process.env.PUBLIC_URL + "/CalebGilbertResume.pdf"} download="Caleb_Gilbert_Resume" className="styled_button">
                   <i className="fa-solid fa-file-arrow-down"></i>
                 </a>
               </div>
@@ -165,32 +171,38 @@ const AllPokemon = () => {
             </ul>
           </div>
           <div className="showcase__grid-item">
-            <h3>LINKS</h3>
+            <h3>LINKS / CLICK ME!</h3>
             <ul>
-              <li> - GITHUB1</li>
-              <li> - GITHUB2</li>
-              <li> - LIVELINK</li>
+              <li>
+                <a className="showcase__link" href="https://shrewdness.herokuapp.com/" target="_blank"> - Live Link</a>
+              </li>
+              <li>
+                <a className="showcase__link" href="https://github.com/CalebAmes/Shrewdness" target="_blank"> - Github Repository</a>
+              </li>
+              <li>
+                <a className="showcase__link" href="https://github.com/CalebAmes/ShrewdnessElectron" target="_blank"> - Github for Electron version</a>
+              </li>
             </ul>
           </div>
           <div className="showcase__grid-item">
             <h3>DESCRIPTION</h3>
             <p>
-              Chat application with web and desktop versions. Real-time communication, auto-complete, notifications, themes and more.
-
-              Voluptate elit qui excepteur cillum. Aliqua eu sint excepteur exercitation quis ea do. Culpa sint laborum nulla excepteur esse laborum elit cupidatat nisi duis cillum commodo exercitation incididunt. Cillum proident commodo non exercitation nisi eu sit laboris.
+              Taking inspiration from Slack and Discord this group chat application hosts a powerhouse of features such as Themes, Autocomplete, Realtime messaging, updating and deleting to any number of clients. It also has a fully featured Electron Frontend that can be packaged into a Native desktop application for Mac, Windows or Linux. This version also includes Notifications.
             </p>
           </div>
           <div className="showcase__grid-item">
             <h3>NOTABLE FEATURES</h3>
             <ul>
               <li> - Desktop version of the application</li>
-              <li> - Autocomplete with Trie</li>
+              <li> - Autocomplete with Trie (Data structure)</li>
               <li> - Instant Messaging with Socket.io</li>
+              <li> - Themes (this is possible because of CSS variables)</li>
             </ul>
           </div>
         </div>
         <div className="messageShrewdness__div">
           <h3>Try it out here!</h3>
+          <p>This is fully integrated to the Shrewdness socket and will allow you to interact with the Gorillas - General Channel</p>
           <MessageShrewdness />
         </div>
       </div>
@@ -218,28 +230,21 @@ const AllPokemon = () => {
             </ul>
           </div>
           <div className="showcase__grid-item">
-            <h3>LINKS</h3>
+            <h3>LINKS / CLICK ME!</h3>
             <ul>
-              <li> - GITHUB1</li>
-              <li> - GITHUB2</li>
-              <li> - LIVELINK</li>
+              <li>
+                <a className="showcase__link" href="https://sniffs.herokuapp.com/" target="_blank"> - Live Link</a>
+              </li>
+              <li>
+                <a className="showcase__link" href="https://github.com/CalebAmes/sniffs" target="_blank"> - Github Repository</a>
+              </li>
             </ul>
           </div>
           <div className="showcase__grid-item">
             <h3>DESCRIPTION</h3>
             <p>
-              Chat application with web and desktop versions. Real-time communication, auto-complete, notifications, themes and more.
-
-              Voluptate elit qui excepteur cillum. Aliqua eu sint excepteur exercitation quis ea do. Culpa sint laborum nulla excepteur esse laborum elit cupidatat nisi duis cillum commodo exercitation incididunt. Cillum proident commodo non exercitation nisi eu sit laboris.
+              This event planner for dogs is loosely inspired by Meetup.com and highlights how powerful a minimalist and modern UI can be when paired with a single page React application.
             </p>
-          </div>
-          <div className="showcase__grid-item">
-            <h3>NOTABLE FEATURES</h3>
-            <ul>
-              <li> - Desktop version of the application</li>
-              <li> - Autocomplete with Trie</li>
-              <li> - Instant Messaging with Socket.io</li>
-            </ul>
           </div>
         </div>
         <div className="showcase__image-div">
@@ -247,14 +252,17 @@ const AllPokemon = () => {
           <img className="showcase__image" src={process.env.PUBLIC_URL + "/images/thumbs/03.gif"} alt="" />
         </div>
       </div>
+      <h3>Group Projects</h3>
       <div className="allPokemonPage__grid" >
-        {projects.map((el: Pokemon, idx) => (
+        {projects.map((el: Project, idx) => (
           <div key={idx}>
             <PokemonHolder
               name={el.name}
               details={el.details}
               image={el.image}
               count={idx % 25}
+              github={el.github}
+              live={el.live}
             />
           </div>
         ))}

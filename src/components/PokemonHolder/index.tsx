@@ -1,14 +1,16 @@
 import React from "react";
 import "./PokemonHolder.css"
 
-interface PokemonDetails {
+interface ProjectDetails {
   name: string;
   details: string;
   image: string;
   count: number;
+  github: string;
+  live: string;
 }
 
-const PokemonHolder: React.FC<PokemonDetails> = (props) => {
+const PokemonHolder: React.FC<ProjectDetails> = (props) => {
   const animationDelay = {
     'animationDelay': `${props.count}00ms`,
   }
@@ -21,6 +23,11 @@ const PokemonHolder: React.FC<PokemonDetails> = (props) => {
       <div className="pokemonCard__info">
         <h1 className="pokemonCard__info-name">{props.name}</h1>
         <p className="pokemonCard__info-details">{props.details}</p>
+        <div className="buttonGroup groupProjectButton">
+          <a href={props.github} target="_blank" className="styled_button">
+            <i className="fa-brands fa-github-square"></i>
+          </a>
+        </div>
       </div>
     </div>
   );
