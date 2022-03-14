@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import MessageShrewdness from "../../components/MessageShrewdness";
 import PokemonHolder from "../../components/PokemonHolder";
 import "./AllPokemon.scss";
 
@@ -33,16 +34,15 @@ const projects = [
 
 const AllPokemon = () => {
   const [theme, setTheme] = useState<string>("light");
-  const [pageFontSize, setPageFontSize] = useState<number>(12)
-  const grid = useRef<any>(null);
-  const top = useRef<any>(null);
+  const [pageFontSize, setPageFontSize] = useState<number>(12);
+  const bottom = useRef<any>(null);
 
   const scrollTop = () => {
     window.scroll({ top: 0, behavior: "smooth" });
   };
 
   const scrollBottom = () => {
-    grid.current.lastChild.scrollIntoView({ behavior: "smooth" });
+    bottom.current.lastChild.scrollIntoView({ behavior: "smooth" });
   };
 
   const fontAdjuster = {
@@ -101,7 +101,8 @@ const AllPokemon = () => {
     themeHandler()
   }, [theme]);
 
-  const dontClick = { background: 'red', cursor: 'not-allowed' } 
+
+  const dontClick = { background: 'red', cursor: 'not-allowed' }
 
   return (
     <div style={fontAdjuster} className="allPokemonPage">
@@ -135,7 +136,7 @@ const AllPokemon = () => {
           Blue
         </button>
         <button
-          style={pageFontSize >= 20 ? dontClick: {}}
+          style={pageFontSize >= 20 ? dontClick : {}}
           onClick={() => setPageFontSize(() => pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)} className="allPokemonPage__button"
         >
           <i className="fa-solid fa-magnifying-glass-plus"></i>
@@ -151,7 +152,7 @@ const AllPokemon = () => {
           <i className="fa-solid fa-angles-down"></i>
         </button>
       </div>
-      <div className="allPokemonPage__title"/>
+      <div className="allPokemonPage__title" />
       <div className="caleb_card_container">
         <div className="caleb_card">
           <div className="caleb_card__text">
@@ -180,7 +181,7 @@ const AllPokemon = () => {
           <img src={process.env.PUBLIC_URL + "/me.jpeg"} alt="Picture of Caleb" className="caleb_card-profile-image" />
         </div>
       </div>
-      <div className="allPokemonPage__grid" ref={grid}>
+      <div className="allPokemonPage__grid" >
         {projects.map((el: Pokemon, idx) => (
           <div key={idx}>
             <PokemonHolder
@@ -195,13 +196,14 @@ const AllPokemon = () => {
       <div className="more_info">
         <p>I am a tinkerer first. If I can take it apart and see how it works, chances are I have. If I can modify it, chances are that I will. My preferred tools are JavaScript, React, Redux, Express, Sequelize, and SQL however I also enjoy Python and how easy it makes working with data, especially when paired with Flask and SQLAlchemy. This said I can learn anything and am always eager for the challenge. Send me a message and let's get the conversation started.</p>
       </div>
+      <MessageShrewdness />
       <div className="spotify">
         <h2 className="spotify_title">Currently Listening on Spotify</h2>
         <a href="https://open.spotify.com/user/214pqxcs7k2cos6kqton5zssa" target="_blank">
           <img src="https://calebames.vercel.app/api/spotify" alt="Spotify now playing" />
         </a>
       </div>
-      <button className="allPokemonPage__button" onClick={scrollTop}>
+      <button ref={bottom} className="allPokemonPage__button" onClick={scrollTop}>
         <i className="fa-solid fa-angles-up"></i>
       </button>
     </div>

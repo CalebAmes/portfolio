@@ -1,0 +1,96 @@
+.messageInputDiv {
+	font-size: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background: var(--bars);
+	color: var(--highlight);
+	border-radius: 0.5em;
+	width: calc(100% - 1em);
+	margin: auto;
+	min-height: 2.5em;
+	position: relative;
+	// bottom: 20px;
+}
+
+.messageInputLeft{
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	margin-left: 1em;
+}
+
+.messageInputTextarea {
+	background: var(--bars);
+	color: var(--highlight);
+	width: 80%;
+	border: none;
+	outline: none;
+	resize: none;
+	font-size: 1em;
+	margin-left: 1em;
+}
+
+.dropzone {
+	display: flex;
+	flex-direction: row;
+	outline: none;
+	cursor: pointer;
+}
+
+.preview {
+	transform: translateY(-3px) translateX(-15px);
+}
+
+.fa-window-close {
+	transform: translateY(8px) translateX(-12px);
+}
+
+.autocomplete {
+	position: absolute;
+	z-index: 5;
+	width: 10em;
+	background: var(--bars);
+	color: var(--highlight);
+	right: 1em;
+	bottom: 2em;
+	padding: 1em;
+	border-radius: 1em;
+	opacity: 0.9;
+	transition: all var(--speed) ease;
+	animation-name: fade2;
+	animation-duration: 0.3s;
+}
+
+@keyframes fade2 {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.8;
+	}
+}
+
+.autocomplete:hover {
+	opacity: 1;
+}
+
+.autocompleteList > li:hover {
+	filter: brightness(2.3);
+}
+
+.autocomplete > p {
+	padding: 0px;
+	margin: auto;
+}
+
+.alert {
+	background: rgba($color: #000000, $alpha: 0.8);
+	position: absolute;
+	width: 100%;
+	bottom: 3em;
+}

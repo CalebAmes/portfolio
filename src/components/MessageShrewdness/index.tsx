@@ -1,27 +1,36 @@
 import './MessageShrewdness.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { fetchMessages } from '../../utils/api';
-import { io } from "socket.io-client";
+import socket from '../../services/socket';
+import MessageInput from '../MessageInput';
+import { seedAutoComplete, autoComplete } from '../../services/autoComplete';
+import ChatComponent from '../ChatComponent';
 
-const socket = io("https://shrewdness.herokuapp.com/")
-
+interface User {
+  username: string
+}
 interface MessageArray {
-  messageText: string
+  messageText: string,
+  userId: number,
+  User: User,
 }
 
 const MessageShrewdness = () => {
-  const [messages, setMessages] = useState<MessageArray[]>([])
-  const [message, setMessage] = useState<any>("")
+  const [messages, setMessages] = useState<MessageArray[]>([]);
+  const [message, setMessage] = useState<string>("");
+  const scrollRef = useRef<any>(null);
 
   useEffect(() => {
-    socket.on(`chat_message_1`, () => {
+    seedAutoComplete();
+    
+    socket.on(`chat_message_1`, (msg) => {
       fetchMessages().then(res => setMessages(() => res))
     })
     socket.on(`edit_channel_1`, async () => {
       fetchMessages().then(res => setMessages(() => res))
     });
     fetchMessages().then(res => setMessages(() => res))
-  }, [])
+  }, []);
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value)
@@ -49,23 +58,15 @@ const MessageShrewdness = () => {
   };
 
   return (
-    <div className='messageContainer'>
-      <div>MessageShrewdness</div>
-      {
-        messages.map((message, i) => {
-          return (
-            <div key={i} className="singleMessage">
-              <p>{message.messageText}</p>
-            </div>
-          )
-        })
-      }
-      <input
-        type="text"
-        maxLength={140}
-        onChange={inputHandler}
-        onKeyPress={keyPress}
-        value={message} />
+    <div className='messageContainer' ref={scrollRef}>
+      <div className="messagesDiv">
+        {
+          messages.map((message, i) => (
+            <ChatComponent message={message} />
+          ))
+        }
+      </div>
+      <MessageInput autoComplete={autoComplete} />
     </div>
   )
 }
