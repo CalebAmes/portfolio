@@ -7,7 +7,7 @@ import './Navigation.scss';
 // this is for the web version of this application
 import { ReactComponent as Image } from '../../icons/gorilla.svg';
 
-const Navigation = () => {
+const Navigation = ({applyTheme}) => {
 	return (
 		<>
 			<div className="navItem">
@@ -19,8 +19,6 @@ const Navigation = () => {
 
 export function NavItem(props) {
 	const [open, setOpen] = useState(false);
-
-	useEffect(() => { }, []);
 
 	const openFunc = () => {
 		setOpen(!open);
