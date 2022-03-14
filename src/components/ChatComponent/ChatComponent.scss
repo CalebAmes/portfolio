@@ -1,0 +1,184 @@
+.avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.postMessage {
+	display: flex;
+	flex-direction: column;
+}
+
+.chatComponentDiv {
+	box-sizing: border-box;
+	color: var(--color-main);
+	overflow-wrap: anywhere;
+	position: relative;
+}
+
+.cardContainer {
+	position: absolute;
+	left: 10em;
+	top: -2em;
+}
+
+.post {
+	display: flex;
+	flex-direction: row;
+}
+
+.post:hover {
+	background: var(--hover);
+}
+
+.message {
+	font-size: 14px;
+	font-weight: 100;
+	display: flex;
+	flex-direction: column;
+}
+
+.divImage {
+	padding-top: 6px;
+	margin: auto;
+}
+
+.divImage:hover {
+	opacity: 0.7;
+}
+
+.postInfo {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0;
+}
+
+.messageImg {
+	border-radius: 0.5em;
+	max-width: 100%;
+	max-height: 400px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.messageOrigin {
+	font-size: 18px;
+	font-weight: bold;
+	color: var(--color-accent);
+	cursor: pointer;
+}
+
+.messageOrigin:hover {
+	text-decoration: underline;
+}
+
+.messageTime {
+	margin-left: 20px;
+}
+
+.messageTime > p {
+	font-size: 0.5em;
+	transform: translateY(em);
+}
+
+.messageText {
+	max-width: clamp(20vw, 80vw, 90vw);
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+}
+
+.messageText > p {
+	top: 0px;
+	overflow-wrap: anywhere;
+}
+
+.deleteMessageButton {
+	width: 1em;
+}
+
+.editMessageInputDiv {
+	font-size: 1em;
+	display: flex;
+	flex-direction: row;
+	background: var(--bars);
+	color: var(--highlight);
+	border-radius: 12px;
+	z-index: 1;
+	width: 70vw;
+	left: 50%;
+	bottom: 25px;
+}
+
+.editMessage {
+	margin-left: 15px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 1;
+	color: var(--color-accent);
+	border: 1px solid #0d0d0d;
+	border-radius: var(--border-radius);
+	background: var(--hover);
+	cursor: pointer;
+	z-index: 3;
+	right: 2em;
+	top: -1em;
+	transition: all var(--speed) ease;
+	position: absolute;
+}
+
+.editMessage:hover {
+	box-shadow: 0 2px 3px #0d0d0d;
+}
+
+.editMessage > div {
+	margin: 8px;
+}
+
+.editMessage > div:hover {
+	filter: brightness(0.5);
+}
+
+// this is all for the modal
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+.modal-background {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 10;
+}
+
+.modal-content {
+	position: absolute;
+	max-width: 90vw;
+	max-height: 80vh;
+	z-index: 10;
+	animation-name: zoom;
+	animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+} ;

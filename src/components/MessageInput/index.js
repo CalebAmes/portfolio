@@ -3,19 +3,18 @@ import socket from "../../services/socket";
 import { useDropzone } from "react-dropzone";
 import "./MessageInput.scss";
 
-const MessageInput = ({ user = 1, channelId = 1, channelName = "Message With Shrewdness", autoComplete }) => {
+const MessageInput = ({ channelName = "Message With Shrewdness", autoComplete }) => {
   const [value, setValue] = useState("");
   const [files, setFiles] = useState([]);
   const [alert, setAlert] = useState("");
   const [autoCompleteResults, setAutoCompleteResults] = useState([]);
-  const userId = user?.id;
 
   const valHandler = (array) => {
     const valArray = array.split(" ");
     const val = valArray[valArray.length - 1].toString();
     return val;
   };
-  
+
   const keyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -49,24 +48,13 @@ const MessageInput = ({ user = 1, channelId = 1, channelName = "Message With Shr
   const sendMessage = () => {
     if (value.trim() === "") return;
 
-    let msg;
-
-    if (files[0]) {
-      msg = {
-        messageText: value.trim(),
-        userId,
-        channelId,
-        messageImg: files[0],
-      };
-    } else {
-      msg = {
-        messageText: value.trim(),
-        userId,
-        channelId,
-        messageImg: null,
-      };
-    }
-    socket.emit(`chatMessage`, msg);
+    const messageObject = {
+      messageText: value.trim(),
+      userId: 1,
+      channelId: 1,
+      messageImg: files[0] ? files[0] : null,
+    };
+    socket.emit(`chatMessage`, messageObject);
   };
 
   const autoCompleteFunc = (val) => {
@@ -97,39 +85,37 @@ const MessageInput = ({ user = 1, channelId = 1, channelName = "Message With Shr
   ));
 
   return (
-    <>
+    <div className="messageInputDiv">
       {alert && (
         <div className="alert">
           <h3 className="messageOrigin">{alert}</h3>
         </div>
       )}
-      <div className="messageInputDiv">
-        <div className="messageInputLeft">
-          <div className="dropzone" {...getRootProps()}>
-            <input {...getInputProps()} />
-            <i className="fas fa-image fa-lg" />
+      <div className="messageInputLeft">
+        <div className="dropzone" {...getRootProps()}>
+          <input {...getInputProps()} />
+          <i className="fas fa-image fa-lg" />
+        </div>
+        <input
+          type="text"
+          maxLength="140"
+          onChange={(e) => {
+            autoCompleteFunc(e.target.value);
+            setValue(e.target.value);
+          }}
+          onKeyPress={keyPress}
+          value={value}
+          className="messageInputTextarea"
+          placeholder={`Message # ${channelName}`}
+        ></input>
+      </div>
+      <div className="preview">
+        {files[0] && (
+          <div onClick={() => setFiles([])}>
+            <i className="fas fa-window-close" />
           </div>
-          <input
-						type="text"
-            maxLength="140"
-            onChange={(e) => {
-              autoCompleteFunc(e.target.value);
-              setValue(e.target.value);
-            }}
-            onKeyPress={keyPress}
-            value={value}
-            className="messageInputTextarea"
-            placeholder={`Message # ${channelName}`}
-          ></input>
-        </div>
-        <div className="preview">
-          {files[0] && (
-            <div onClick={() => setFiles([])}>
-              <i className="fas fa-window-close" />
-            </div>
-          )}
-          {images}
-        </div>
+        )}
+        {images}
       </div>
       {autoCompleteResults?.length > 0 && (
         <div className="autocomplete">
@@ -143,7 +129,7 @@ const MessageInput = ({ user = 1, channelId = 1, channelName = "Message With Shr
           </ul>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,11 +1,10 @@
 import './MessageShrewdness.scss';
 import { useEffect, useState, useRef } from 'react';
 import { fetchMessages } from '../../utils/api';
-import { io } from "socket.io-client";
+import socket from '../../services/socket';
 import MessageInput from '../MessageInput';
 import { seedAutoComplete, autoComplete } from '../../services/autoComplete';
-
-const socket = io("https://shrewdness.herokuapp.com/")
+import ChatComponent from '../ChatComponent';
 
 interface User {
   username: string
@@ -69,29 +68,23 @@ const MessageShrewdness = () => {
 
   return (
     <div className='messageContainer'>
-      <MessageInput autoComplete={autoComplete}/>
       <div className="messagesDiv" ref={scrollRef}>
         {
           messages.map((message, i) => {
             let isDemoMessage = false;
             if (message.userId === 1) isDemoMessage = true;
             return (
-              <div key={i} style={isDemoMessage ? { alignSelf: "end", textAlign: "end" } : {}} className="singleMessage">
-                <p>{message.User.username}</p>
-                <h3>{message.messageText}</h3>
-              </div>
+
+              <ChatComponent message={message} />
+              // <div key={i} style={isDemoMessage ? { alignSelf: "end", textAlign: "end" } : {}} className="singleMessage">
+              //   <p>{message.User.username}</p>
+              //   <h3>{message.messageText}</h3>
+              // </div>
             )
           })
         }
       </div>
-      <input
-        placeholder="press 'enter' to send"
-        type="text"
-        maxLength={140}
-        onChange={inputHandler}
-        onKeyPress={keyPress}
-        value={message}
-      />
+      <MessageInput autoComplete={autoComplete}/>
     </div>
   )
 }
