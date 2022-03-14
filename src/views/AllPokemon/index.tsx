@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import MessageShrewdness from "../../components/MessageShrewdness";
 import PokemonHolder from "../../components/PokemonHolder";
 import "./AllPokemon.scss";
+import Icons from "./icons";
+import { themeHandler } from '../../components/index'
 
 interface Pokemon {
   name: string;
@@ -10,16 +12,6 @@ interface Pokemon {
 }
 
 const projects = [
-  {
-    name: "Shrewdness",
-    details: "Chat application with web and desktop versions. Real-time communication, auto-complete, notifications, themes and more.",
-    image: "/images/thumbs/01.gif"
-  },
-  {
-    name: "Sniffs",
-    details: "Loosely inspired by Meetup.com, this application highlights how powerful a minimalist and modern UI can be with a single page application.",
-    image: "/images/thumbs/03.gif"
-  },
   {
     name: "Instructables 2",
     details: "A clone of the popular site Instructables.com. Built to explore key features, like complex forms and dynamic DOM elements.",
@@ -53,41 +45,6 @@ const AllPokemon = () => {
     setTheme(e.target.value)
   };
 
-  const themeHandler = () => {
-    const body = document.body;
-    if (theme === "dark") {
-      body.classList.add("dark-background");
-      body.classList.remove("light-background");
-      body.classList.remove("red-background");
-      body.classList.remove("blue-background");
-      localStorage.setItem('portfolio', JSON.stringify({ theme: 'dark' }));
-    } else if (theme === "light") {
-      body.classList.add("light-background");
-      body.classList.remove("dark-background");
-      body.classList.remove("red-background");
-      body.classList.remove("blue-background");
-      localStorage.setItem('portfolio', JSON.stringify({
-        theme: 'light'
-      }))
-    } else if (theme === "blue") {
-      body.classList.add("blue-background");
-      body.classList.remove("dark-background");
-      body.classList.remove("red-background");
-      body.classList.remove("light-background");
-      localStorage.setItem('portfolio', JSON.stringify({
-        theme: 'blue'
-      }))
-    } else if (theme === "red") {
-      body.classList.add("red-background");
-      body.classList.remove("dark-background");
-      body.classList.remove("blue-background");
-      body.classList.remove("light-background");
-      localStorage.setItem('portfolio', JSON.stringify({
-        theme: 'red'
-      }))
-    }
-  }
-
   useEffect(() => {
     let portfolio: any = localStorage.getItem('portfolio');
     if (portfolio) {
@@ -98,7 +55,7 @@ const AllPokemon = () => {
   }, []);
 
   useEffect(() => {
-    themeHandler()
+    themeHandler(theme)
   }, [theme]);
 
 
@@ -157,28 +114,118 @@ const AllPokemon = () => {
         <div className="caleb_card">
           <div className="caleb_card__text">
             <h2 className="caleb_card__text-title">Caleb Ames Gilbert...</h2>
-            <div className="icons">
-              <img alt="typescript" src="https://img.shields.io/badge/typescript-%23E34F26.svg?&style=for-the-badge&logo=typescript&logoColor=white" />
-              <img alt="HTML5" src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" />
-              <img alt="CSS3" src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" />
-              <img alt="SASS" src="https://img.shields.io/badge/SASS-hotpink.svg?&style=for-the-badge&logo=SASS&logoColor=white" />
-              <img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" />
-              <img alt="React" src="https://img.shields.io/badge/react-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB" />
-              <img alt="Redux" src="https://img.shields.io/badge/redux-%23593d88.svg?&style=for-the-badge&logo=redux&logoColor=white" />
-              <img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white" />
-              <img alt="Express.js" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
-              <img alt="Mocha" src="https://img.shields.io/badge/-mocha-%238D6748?&style=for-the-badge&logo=mocha&logoColor=white" />
-              <img alt="Postgres" src="https://img.shields.io/badge/postgres-%23316192.svg?&style=for-the-badge&logo=postgresql&logoColor=white" />
-              <img alt="Python" src="https://img.shields.io/badge/python-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white" />
-              <img alt="Flask" src="https://img.shields.io/badge/flask-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white" />
-              <img alt="Webpack" src="https://img.shields.io/badge/webpack-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black" />
-              <img alt="Heroku" src="https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white" />
-              <img alt="Vercel" src="https://img.shields.io/badge/vercel-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white" />
-              <img alt="AWS" src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />
-              <img alt="Visual Studio Code" src="https://img.shields.io/badge/VisualStudioCode-0078d7.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white" />
-            </div>
+            <Icons />
           </div>
           <img src={process.env.PUBLIC_URL + "/me.jpeg"} alt="Picture of Caleb" className="caleb_card-profile-image" />
+        </div>
+      </div>
+      <div className="more_info">
+        <p>I am a tinkerer first. If I can take it apart and see how it works, chances are I have. If I can modify it, chances are that I will. My preferred tools are JavaScript, React, Redux, Express, Sequelize, and SQL however I also enjoy Python and how easy it makes working with data, especially when paired with Flask and SQLAlchemy. This said I can learn anything and am always eager for the challenge. Send me a message and let's get the conversation started.</p>
+      </div>
+      <h2 className="showcase__title">Shrewdness</h2>
+      <div className="showcase">
+        <div className="showcase__grid">
+          <div className="showcase__grid-item">
+            <h3>FRONTEND</h3>
+            <ul>
+              <li> - SCSS</li>
+              <li> - REACT</li>
+              <li> - REDUX</li>
+              <li> - SOCKET.IO</li>
+              <li> - ELECTRON</li>
+            </ul>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>BACKEND</h3>
+            <ul>
+              <li> - NODE.JS</li>
+              <li> - EXPRESS.JS</li>
+              <li> - SOCKET.IO</li>
+              <li> - SEQUELIZE</li>
+              <li> - POSTGRESQL</li>
+            </ul>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>LINKS</h3>
+            <ul>
+              <li> - GITHUB1</li>
+              <li> - GITHUB2</li>
+              <li> - LIVELINK</li>
+            </ul>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>DESCRIPTION</h3>
+            <p>
+              Chat application with web and desktop versions. Real-time communication, auto-complete, notifications, themes and more.
+
+              Voluptate elit qui excepteur cillum. Aliqua eu sint excepteur exercitation quis ea do. Culpa sint laborum nulla excepteur esse laborum elit cupidatat nisi duis cillum commodo exercitation incididunt. Cillum proident commodo non exercitation nisi eu sit laboris.
+            </p>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>NOTABLE FEATURES</h3>
+            <ul>
+              <li> - Desktop version of the application</li>
+              <li> - Autocomplete with Trie</li>
+              <li> - Instant Messaging with Socket.io</li>
+            </ul>
+          </div>
+        </div>
+        <div className="messageShrewdness__div">
+          <h3>Try it out here!</h3>
+          <MessageShrewdness />
+        </div>
+      </div>
+      <h2 className="showcase__title">sniffs.</h2>
+      <div className="showcase reverseFlex">
+        <div className="showcase__grid reverseGrid">
+          <div className="showcase__grid-item">
+            <h3>FRONTEND</h3>
+            <ul>
+              <li> - SCSS</li>
+              <li> - REACT</li>
+              <li> - REDUX</li>
+              <li> - SOCKET.IO</li>
+              <li> - ELECTRON</li>
+            </ul>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>BACKEND</h3>
+            <ul>
+              <li> - NODE.JS</li>
+              <li> - EXPRESS.JS</li>
+              <li> - SOCKET.IO</li>
+              <li> - SEQUELIZE</li>
+              <li> - POSTGRESQL</li>
+            </ul>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>LINKS</h3>
+            <ul>
+              <li> - GITHUB1</li>
+              <li> - GITHUB2</li>
+              <li> - LIVELINK</li>
+            </ul>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>DESCRIPTION</h3>
+            <p>
+              Chat application with web and desktop versions. Real-time communication, auto-complete, notifications, themes and more.
+
+              Voluptate elit qui excepteur cillum. Aliqua eu sint excepteur exercitation quis ea do. Culpa sint laborum nulla excepteur esse laborum elit cupidatat nisi duis cillum commodo exercitation incididunt. Cillum proident commodo non exercitation nisi eu sit laboris.
+            </p>
+          </div>
+          <div className="showcase__grid-item">
+            <h3>NOTABLE FEATURES</h3>
+            <ul>
+              <li> - Desktop version of the application</li>
+              <li> - Autocomplete with Trie</li>
+              <li> - Instant Messaging with Socket.io</li>
+            </ul>
+          </div>
+        </div>
+        <div className="showcase__image-div">
+          <h3>Take a look!</h3>
+          <img className="showcase__image" src={process.env.PUBLIC_URL + "/images/thumbs/03.gif"} alt="" />
         </div>
       </div>
       <div className="allPokemonPage__grid" >
@@ -193,20 +240,10 @@ const AllPokemon = () => {
           </div>
         ))}
       </div>
-      <div className="more_info">
-        <p>I am a tinkerer first. If I can take it apart and see how it works, chances are I have. If I can modify it, chances are that I will. My preferred tools are JavaScript, React, Redux, Express, Sequelize, and SQL however I also enjoy Python and how easy it makes working with data, especially when paired with Flask and SQLAlchemy. This said I can learn anything and am always eager for the challenge. Send me a message and let's get the conversation started.</p>
-      </div>
-      <MessageShrewdness />
-      {/* <div className="spotify">
-        <h2 className="spotify_title">Currently Listening on Spotify</h2>
-        <a href="https://open.spotify.com/user/214pqxcs7k2cos6kqton5zssa" target="_blank">
-          <img src="https://calebames.vercel.app/api/spotify" alt="Spotify now playing" />
-        </a>
-      </div> */}
       <button ref={bottom} className="allPokemonPage__button" onClick={scrollTop}>
         <i className="fa-solid fa-angles-up"></i>
       </button>
-    </div>
+    </div >
   );
 };
 
