@@ -45,3 +45,8 @@
   flex-direction: column;
   min-height: 10em;
 }
+
+.groupProjectButton {
+  font-size: 2em;
+  margin: auto;
+}
