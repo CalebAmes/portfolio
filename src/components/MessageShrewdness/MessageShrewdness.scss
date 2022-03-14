@@ -2,7 +2,6 @@
   border: 3px solid red !important;
   display: flex;
   flex-direction: column;
-  // overflow: scroll;
   max-height: 40em;
   max-width: 40em;
   margin: 5em auto;
@@ -11,7 +10,7 @@
 .messagesDiv {
   overflow: scroll;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   margin: 1em;
   gap: 1em;
 }

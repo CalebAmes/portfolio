@@ -20,25 +20,16 @@ const MessageShrewdness = () => {
   const [message, setMessage] = useState<string>("");
   const scrollRef = useRef<any>(null);
 
-
-  const scroll = () => {
-    if (scrollRef.current?.lastChild) {
-      scrollRef.current.lastChild.scrollIntoView({
-        behavior: "smooth"
-      })
-    }
-  }
-
   useEffect(() => {
     seedAutoComplete();
-
+    
     socket.on(`chat_message_1`, (msg) => {
-      fetchMessages().then(res => setMessages(() => res)).then(scroll)
+      fetchMessages().then(res => setMessages(() => res))
     })
     socket.on(`edit_channel_1`, async () => {
       fetchMessages().then(res => setMessages(() => res))
     });
-    fetchMessages().then(res => setMessages(() => res)).then(scroll)
+    fetchMessages().then(res => setMessages(() => res))
   }, []);
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,24 +58,15 @@ const MessageShrewdness = () => {
   };
 
   return (
-    <div className='messageContainer'>
-      <div className="messagesDiv" ref={scrollRef}>
+    <div className='messageContainer' ref={scrollRef}>
+      <div className="messagesDiv">
         {
-          messages.map((message, i) => {
-            let isDemoMessage = false;
-            if (message.userId === 1) isDemoMessage = true;
-            return (
-
-              <ChatComponent message={message} />
-              // <div key={i} style={isDemoMessage ? { alignSelf: "end", textAlign: "end" } : {}} className="singleMessage">
-              //   <p>{message.User.username}</p>
-              //   <h3>{message.messageText}</h3>
-              // </div>
-            )
-          })
+          messages.map((message, i) => (
+            <ChatComponent message={message} />
+          ))
         }
       </div>
-      <MessageInput autoComplete={autoComplete}/>
+      <MessageInput autoComplete={autoComplete} />
     </div>
   )
 }
