@@ -5,6 +5,7 @@ import socket from '../../services/socket';
 import MessageInput from '../MessageInput';
 import { seedAutoComplete, autoComplete } from '../../services/autoComplete';
 import ChatComponent from '../ChatComponent';
+import Navigation from '../Navigation'
 
 interface User {
   username: string
@@ -59,6 +60,7 @@ const MessageShrewdness = () => {
 
   return (
     <div className='messageContainer' ref={scrollRef}>
+      <Navigation />
       <div className="messagesDiv">
         {
           messages.map((message, i) => (
