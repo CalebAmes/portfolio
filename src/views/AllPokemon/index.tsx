@@ -197,12 +197,12 @@ const AllPokemon = () => {
         <p>I am a tinkerer first. If I can take it apart and see how it works, chances are I have. If I can modify it, chances are that I will. My preferred tools are JavaScript, React, Redux, Express, Sequelize, and SQL however I also enjoy Python and how easy it makes working with data, especially when paired with Flask and SQLAlchemy. This said I can learn anything and am always eager for the challenge. Send me a message and let's get the conversation started.</p>
       </div>
       <MessageShrewdness />
-      <div className="spotify">
+      {/* <div className="spotify">
         <h2 className="spotify_title">Currently Listening on Spotify</h2>
         <a href="https://open.spotify.com/user/214pqxcs7k2cos6kqton5zssa" target="_blank">
           <img src="https://calebames.vercel.app/api/spotify" alt="Spotify now playing" />
         </a>
-      </div>
+      </div> */}
       <button ref={bottom} className="allPokemonPage__button" onClick={scrollTop}>
         <i className="fa-solid fa-angles-up"></i>
       </button>

@@ -7,7 +7,7 @@ import './Navigation.scss';
 // this is for the web version of this application
 import { ReactComponent as Image } from '../../icons/gorilla.svg';
 
-const Navigation = ({applyTheme}) => {
+const Navigation = ({ applyTheme }) => {
 	return (
 		<>
 			<div className="navItem">
@@ -68,29 +68,9 @@ export function Dropdown({ openFunc }) {
 		);
 	}
 
-	function DropdownLinks() {
-		return (
-			<>
-				<a className="dropdown-item item" href="https://github.com/CalebAmes" target="_blank">
-					Github
-				</a>
-				<a
-					className="dropdown-item item"
-					href="https://www.linkedin.com/in/caleb-gilbert-b522ab142/"
-					target="_blank"
-				>
-					LinkedIn
-				</a>
-				<a className="dropdown-item item" href="https://calebames.github.io" target="_blank">
-					Portfolio Site
-				</a>
-			</>
-		);
-	}
-
 	return (
 		<>
-			<div className="cardBackground" onClick={openFunc}></div>
+			<div className="dropdown" style={{ top: "0", left: "0", right: "0", bottom: "0"}} onClick={openFunc}></div>
 			<div className="dropdown" style={{ height: menuHeight }}>
 				<CSSTransition
 					in={activeMenu === 'main'}
@@ -100,25 +80,7 @@ export function Dropdown({ openFunc }) {
 					onEnter={calcHeight}
 				>
 					<ul className="dd">
-						<DropdownItem rightRightIcon={<i className="fas fa-chevron-right" />} goToMenu="links">
-							My Links
-						</DropdownItem>
-						<DropdownItem rightRightIcon={<i className="fas fa-sliders-h" />} goToMenu="themes">
-							Themes
-						</DropdownItem>
-					</ul>
-				</CSSTransition>
-
-				<CSSTransition
-					in={activeMenu === 'themes'}
-					unmountOnExit
-					timeout={500}
-					classNames="menu-secondary"
-				>
-					<ul className="dd">
-						<DropdownItem rightRightIcon={<i className="fas fa-chevron-left" />} goToMenu="main">
-							...back
-						</DropdownItem>
+						<div className="item">Themes:</div>
 						<div className="dropdown-item item" onClick={main}>
 							Main
 						</div>
@@ -130,26 +92,20 @@ export function Dropdown({ openFunc }) {
 						</div>
 					</ul>
 				</CSSTransition>
+
 				<CSSTransition
-					in={activeMenu === 'channels'}
+					in={activeMenu === 'themes'}
 					unmountOnExit
 					timeout={500}
 					classNames="menu-secondary"
 				>
 				</CSSTransition>
 				<CSSTransition
-					in={activeMenu === 'links'}
+					in={activeMenu === 'channels'}
 					unmountOnExit
 					timeout={500}
 					classNames="menu-secondary"
 				>
-					<ul className="dd">
-						<p>Connect with me here 🚀</p>
-						<DropdownLinks />
-						<DropdownItem rightRightIcon={<i className="fas fa-chevron-left" />} goToMenu="main">
-							...back
-						</DropdownItem>
-					</ul>
 				</CSSTransition>
 			</div>
 		</>

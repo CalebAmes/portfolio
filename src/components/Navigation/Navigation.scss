@@ -8,6 +8,7 @@
 }
 
 .nav-item svg {
+	margin: 0.3em;
 	position: relative;
 	z-index: 4;
 	width: 32px;
@@ -43,24 +44,21 @@
 
 .dd {
 	position: absolute;
-	width: 300px;
+	width: 10em;
 	transform: translateX(-0px);
 	color: var(--color-main);
 	background: var(--highlight);
 	overflow: scroll;
-	// z-index: 4;
 	transition: height var(--speed) ease;
 	overflow: hidden;
-	font-size: 18px;
+	font-size: 1em;
 	font-weight: 400;
-	max-height: 730px;
-	border-radius: 4px;
+	border-radius: 0.5em;
 }
 
 .dd > p {
-	margin-left: 10px;
+	margin-left: 1em;
 	font-weight: 100;
-	font-size: 18px;
 }
 
 .item {
@@ -114,6 +112,7 @@
 .dropdown-item {
 	display: flex;
 	justify-content: space-between;
+	cursor: pointer;
 }
 
 .dropdown-item:hover {
