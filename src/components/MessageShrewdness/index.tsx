@@ -2,6 +2,8 @@ import './MessageShrewdness.scss';
 import { useEffect, useState, useRef } from 'react';
 import { fetchMessages } from '../../utils/api';
 import { io } from "socket.io-client";
+import MessageInput from '../MessageInput';
+import { seedAutoComplete, autoComplete } from '../../services/autoComplete';
 
 const socket = io("https://shrewdness.herokuapp.com/")
 
@@ -29,6 +31,8 @@ const MessageShrewdness = () => {
   }
 
   useEffect(() => {
+    seedAutoComplete();
+
     socket.on(`chat_message_1`, (msg) => {
       fetchMessages().then(res => setMessages(() => res)).then(scroll)
     })
@@ -65,6 +69,7 @@ const MessageShrewdness = () => {
 
   return (
     <div className='messageContainer'>
+      <MessageInput autoComplete={autoComplete}/>
       <div className="messagesDiv" ref={scrollRef}>
         {
           messages.map((message, i) => {

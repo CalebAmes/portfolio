@@ -3,7 +3,7 @@ import socket from "../../services/socket";
 import { useDropzone } from "react-dropzone";
 import "./MessageInput.scss";
 
-const MessageInput = ({ user, channelId, channelName, autoComplete }) => {
+const MessageInput = ({ user = 1, channelId = 1, channelName = "Message With Shrewdness", autoComplete }) => {
   const [value, setValue] = useState("");
   const [files, setFiles] = useState([]);
   const [alert, setAlert] = useState("");
@@ -15,7 +15,7 @@ const MessageInput = ({ user, channelId, channelName, autoComplete }) => {
     const val = valArray[valArray.length - 1].toString();
     return val;
   };
-
+  
   const keyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
