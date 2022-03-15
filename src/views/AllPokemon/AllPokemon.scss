@@ -162,11 +162,13 @@
   position: fixed;
   top: 1em;
   left: 1em;
+  z-index: 10;
 }
 
 .bottomButton {
   width: fit-content;
   margin: auto;
+  padding-top: 1em;
 }
 
 .buttonGroup {

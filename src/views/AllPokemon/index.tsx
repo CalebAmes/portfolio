@@ -202,11 +202,11 @@ const AllPokemon = () => {
         </div>
         <div className="messageShrewdness__div">
           <h3>Try it out here!</h3>
-          <p>This is fully integrated to the Shrewdness socket and will allow you to interact with the Gorillas - General Channel</p>
+          <p>This is fully integrated with the Shrewdness socket and will allow you to interact with the Gorillas - General Channel</p>
           <MessageShrewdness />
         </div>
       </div>
-      <h2 className="showcase__title">sniffs.</h2>
+      <h2 className="showcase__title">Sniffs</h2>
       <div className="showcase reverseFlex">
         <div className="showcase__grid reverseGrid">
           <div className="showcase__grid-item">
