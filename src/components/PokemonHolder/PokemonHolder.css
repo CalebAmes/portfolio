@@ -1,52 +1,53 @@
 .pokemonCard {
-  transform: translateX(100vw);
-  display: flex;
-  flex-direction: column;
-  border-radius: 1em 0 1em 0;
-  background-color: var(--black);
-  color: var(--white);
-  text-align: left;
-  animation: slideIn 400ms;
-  animation-fill-mode: forwards;
-  transition: all ease-in-out 0.3s; 
+	transform: translateX(100vw);
+	display: flex;
+	flex-direction: column;
+	border-radius: 1em 0 1em 0;
+	background-color: var(--black);
+	color: var(--white);
+	text-align: left;
+	animation: slideIn 400ms;
+	animation-fill-mode: forwards;
+	transition: all ease-in-out 0.3s;
 }
 
 .pokemonCard:hover {
-  filter: brightness(1.3);
+	filter: brightness(1.3);
 }
 
 @keyframes slideIn {
-  0% {
-    transform: translateX(100vw);
-  } 100% {
-    transform: translateX(0px);
-  }
+	0% {
+		transform: translateX(100vw);
+	}
+	100% {
+		transform: translateX(0px);
+	}
 }
 
 .pokemonCard__image {
-  background-color: var(--button);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 1em 0 1em 0;
-  overflow: hidden;
+	background-color: var(--button);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 1em 0 1em 0;
+	overflow: hidden;
 }
 
 .pokemonCard__image-image {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 .pokemonCard__info {
-  font-size: 0.8em;
-  display: flex;
-  gap: 1em;
-  padding: 1em;
-  flex-direction: column;
-  min-height: 10em;
+	font-size: 0.8em;
+	display: flex;
+	gap: 1em;
+	padding: 1em;
+	flex-direction: column;
+	min-height: 10em;
 }
 
 .groupProjectButton {
-  font-size: 2em;
-  margin: auto;
+	font-size: 2em;
+	margin: auto;
 }

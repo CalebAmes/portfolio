@@ -1,25 +1,25 @@
 .messageContainer {
-  position: relative;
-  border: 1px solid var(--bars);
-  border-radius: 0.5em;
-  display: flex;
-  flex-direction: column;
-  max-height: 40em;
-  max-width: 40em;
-  background-color: var(--bg);
-  overflow: hidden;
+	position: relative;
+	border: 1px solid var(--bars);
+	border-radius: 0.5em;
+	display: flex;
+	flex-direction: column;
+	max-height: 40em;
+	max-width: 40em;
+	background-color: var(--bg);
+	overflow: hidden;
 }
 
 .messagesDiv {
-  overflow: auto;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 1em;
-  border-top: 1px solid var(--bars);
+	overflow: auto;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 1em;
+	border-top: 1px solid var(--bars);
 	border-bottom: 1px solid var(--bars);
 }
 
 .singleMessage {
-  max-width: 75%;
-  overflow-wrap: break-word;
+	max-width: 75%;
+	overflow-wrap: break-word;
 }

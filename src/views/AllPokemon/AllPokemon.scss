@@ -1,320 +1,319 @@
 .allPokemonPage {
-  text-align: center;
-  margin: 1em 0;
-  overflow: hidden;
-  color: var(--title-text);
+	text-align: center;
+	margin: 1em 0;
+	overflow: hidden;
+	color: var(--title-text);
 }
 
 .allPokemonPage__title {
-  color: var(--title-text);
-  margin: 3em;
-  font-size: 2em;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  position: relative;
-  transition: all ease-in-out 300ms;
+	color: var(--title-text);
+	margin: 3em;
+	font-size: 2em;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	position: relative;
+	transition: all ease-in-out 300ms;
 }
 
 .allPokemonPage__title::after {
-  --title-underline-width: 16ch;
-  position: absolute;
-  content: "";
-  width: var(--title-underline-width);
-  height: 2px;
-  background: var(--title-color);
-  bottom: 0;
-  left: calc((50% - (var(--title-underline-width) / 2)));
-  transition: all ease-in-out 300ms;
+	--title-underline-width: 16ch;
+	position: absolute;
+	content: '';
+	width: var(--title-underline-width);
+	height: 2px;
+	background: var(--title-color);
+	bottom: 0;
+	left: calc((50% - (var(--title-underline-width) / 2)));
+	transition: all ease-in-out 300ms;
 }
 
 .showcase {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 90em;
-  gap: 5em;
-  margin: auto;
-  padding: 3em 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 90em;
+	gap: 5em;
+	margin: auto;
+	padding: 3em 1em;
 }
 
 .showcase__title {
-  font-size: 2em;
-  margin-top: 2em;
+	font-size: 2em;
+	margin-top: 2em;
 }
 
 .showcase__grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-auto-columns: 1fr;
-  grid-template-areas:
-    "one"
-    "two"
-    "three"
-    "four"
-    "five";
-  padding-block: 2rem;
-  width: min(95%, 50rem);
-  margin-inline: auto;
-  color: var(--white);
+	display: grid;
+	gap: 1.5rem;
+	grid-auto-columns: 1fr;
+	grid-template-areas:
+		'one'
+		'two'
+		'three'
+		'four'
+		'five';
+	padding-block: 2rem;
+	width: min(95%, 50rem);
+	margin-inline: auto;
+	color: var(--white);
 }
 
 .showcase__grid-item {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0.5em;
-  transition: all ease-in-out 300ms;
-  padding: 0.5em;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 0.5em;
+	transition: all ease-in-out 300ms;
+	padding: 0.5em;
 }
 
 .showcase__grid-item li {
-  text-align: left;
+	text-align: left;
 }
 
 .showcase__grid-item:hover {
-  box-shadow: 0.5em 0.4em 0.4em var(--black);
+	box-shadow: 0.5em 0.4em 0.4em var(--black);
 }
 
 .showcase__grid-item:nth-child(1) {
-  grid-area: one;
+	grid-area: one;
 }
 .showcase__grid-item:nth-child(2) {
-  grid-area: two;
+	grid-area: two;
 }
 .showcase__grid-item:nth-child(3) {
-  grid-area: three;
+	grid-area: three;
 }
 .showcase__grid-item:nth-child(4) {
-  grid-area: four;
+	grid-area: four;
 }
 .showcase__grid-item:nth-child(5) {
-  grid-area: five;
+	grid-area: five;
 }
 
 .showcase__image {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 .showcase__title-lists {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .caleb_card_container {
-  background-color: var(--user-card-background);
-  width: 100%;
-  display: flex;
-  margin: 2em 0;
-  align-items: center;
-  justify-content: center;
+	background-color: var(--user-card-background);
+	width: 100%;
+	display: flex;
+	margin: 2em 0;
+	align-items: center;
+	justify-content: center;
 }
 
 .caleb_card {
-  max-width: 85em;
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
+	max-width: 85em;
+	display: flex;
+	flex-direction: column;
+	padding: 2em;
+	justify-content: center;
+	align-items: center;
+	gap: 2em;
 
-  .caleb_card-profile-image {
-    max-width: 20em;
-    mix-blend-mode: darken;
-    border-radius: 1em;
-  }
-  .caleb_card__text {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    align-items: space-between;
-    text-align: left;
-    padding: 1em;
-    .caleb_card__text-title {
-      padding-bottom: 1em;
-      color: var(--red);
-    }
-    .caleb_card__text-body {
-      color: var(--black);
-    }
-  }
+	.caleb_card-profile-image {
+		max-width: 20em;
+		mix-blend-mode: darken;
+		border-radius: 1em;
+	}
+	.caleb_card__text {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		align-items: space-between;
+		text-align: left;
+		padding: 1em;
+		.caleb_card__text-title {
+			padding-bottom: 1em;
+			color: var(--red);
+		}
+		.caleb_card__text-body {
+			color: var(--black);
+		}
+	}
 }
 
 .myLinks {
-  margin-top: 1em;
-  font-size: 2em;
-  p {
-    text-align: end;
-    font-size: 0.5em;
-    margin-right: 1em;
-    color: var(--black)
-  }
-  width: fit-content;
+	margin-top: 1em;
+	font-size: 2em;
+	p {
+		text-align: end;
+		font-size: 0.5em;
+		margin-right: 1em;
+		color: var(--black);
+	}
+	width: fit-content;
 }
 
 .showcase__link {
-  color: blue;
-  font-size: 1.2em;
+	color: blue;
+	font-size: 1.2em;
 }
 
 .showcase__link:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .topLeft {
-  position: fixed;
-  top: 1em;
-  left: 1em;
-  z-index: 10;
+	position: fixed;
+	top: 1em;
+	left: 1em;
+	z-index: 10;
 }
 
 .bottomButton {
-  width: fit-content;
-  margin: auto;
-  padding-top: 1em;
+	width: fit-content;
+	margin: auto;
+	padding-top: 1em;
 }
 
 .buttonGroup {
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 0.3em;
-  overflow: hidden;
-  width: fit-content;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 0.3em;
+	overflow: hidden;
+	width: fit-content;
 }
 
 .allPokemonPage__grid {
-  max-width: 85em;
-  display: grid;
-  gap: 1em;
-  margin: 0 1em;
+	max-width: 85em;
+	display: grid;
+	gap: 1em;
+	margin: 0 1em;
 }
 
 .messageShrewdness__div {
-  overflow-wrap: break-word;
-  p {
-    max-width: 40em;
-  }
+	overflow-wrap: break-word;
+	p {
+		max-width: 40em;
+	}
 }
 
 @media screen and (min-width: 85em) {
-  .allPokemonPage__grid {
-    margin: auto;
-  }
+	.allPokemonPage__grid {
+		margin: auto;
+	}
 
+	.showcase__grid {
+		transform-style: preserve-3d;
+		transform: perspective(50em) rotateY(15deg) translateX(1.5em);
+	}
 
-  .showcase__grid {
-    transform-style: preserve-3d;
-    transform: perspective(50em) rotateY(15deg) translateX(1.5em);
-  }
+	.showcase__grid-item:hover {
+		transform: translateX(-0.4em) translateY(-0.4em);
+	}
 
-  .showcase__grid-item:hover {
-    transform: translateX(-0.4em) translateY(-0.4em);
-  }
+	.showcase {
+		flex-direction: row;
+		gap: 0;
+	}
 
-  .showcase {
-    flex-direction: row;
-    gap: 0;
-  }
+	.messageContainer {
+		max-height: 50em;
+	}
 
-  .messageContainer {
-    max-height: 50em;
-  }
+	.reverseFlex {
+		flex-direction: row-reverse;
+	}
 
-  .reverseFlex {
-    flex-direction: row-reverse;
-  }
-
-  .reverseGrid {
-    transform-style: preserve-3d;
-    transform: perspective(50em) rotateY(-15deg) translateX(-1em);
-  }
+	.reverseGrid {
+		transform-style: preserve-3d;
+		transform: perspective(50em) rotateY(-15deg) translateX(-1em);
+	}
 }
 
 @media screen and (min-width: 50em) {
-  .showcase__grid {
-    grid-template-areas:
-      "one two three"
-      "four four four"
-      "five five five";
-  }
+	.showcase__grid {
+		grid-template-areas:
+			'one two three'
+			'four four four'
+			'five five five';
+	}
 
-  .caleb_card {
-    flex-direction: row;
-  }
+	.caleb_card {
+		flex-direction: row;
+	}
 
-  .pokemonCard {
-    flex-direction: row;
-    min-width: 35em;
-  }
+	.pokemonCard {
+		flex-direction: row;
+		min-width: 35em;
+	}
 
-  .pokemonCard__info {
-    padding: 1em;
-    text-align: center;
-  }
+	.pokemonCard__info {
+		padding: 1em;
+		text-align: center;
+	}
 
-  .pokemonCard__image {
-    max-width: 20em;
-    min-width: 20em;
-  }
+	.pokemonCard__image {
+		max-width: 20em;
+		min-width: 20em;
+	}
 
-  .allPokemonPage__grid {
-    grid-template-columns: repeat(auto-fit, minmax(35em, 1fr));
-    padding: 5em 0;
-  }
+	.allPokemonPage__grid {
+		grid-template-columns: repeat(auto-fit, minmax(35em, 1fr));
+		padding: 5em 0;
+	}
 
-  .messageContainer {
-    max-height: 45em;
-  }
+	.messageContainer {
+		max-height: 45em;
+	}
 
-  .showcase__image-div {
-    max-width: 60%;
-  }
+	.showcase__image-div {
+		max-width: 60%;
+	}
 }
 
 .styled_button {
-  position: relative;
-  box-sizing: border-box;
-  font-weight: bold;
-  color: var(--title-text);
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 1em;
-  transition-delay: 200ms;
-  overflow: hidden;
-  transition: color 300ms ease-in-out;
-  z-index: 1;
+	position: relative;
+	box-sizing: border-box;
+	font-weight: bold;
+	color: var(--title-text);
+	background: none;
+	border: none;
+	box-shadow: none;
+	padding: 1em;
+	transition-delay: 200ms;
+	overflow: hidden;
+	transition: color 300ms ease-in-out;
+	z-index: 1;
 }
 
 .styled_button::before {
-  content: "";
-  border-collapse: collapse;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  background-color: var(--title-text);
+	content: '';
+	border-collapse: collapse;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	background-color: var(--title-text);
 
-  transition: transform 300ms ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
+	transition: transform 300ms ease-in-out;
+	transform: scaleX(0);
+	transform-origin: left;
 }
 
 .styled_button:hover {
-  color: var(--body-background);
+	color: var(--body-background);
 }
 
 .styled_button:hover::before {
-  transform: scaleX(1);
+	transform: scaleX(1);
 }
 
 .spotify_title {
-  color: var(--title-text);
-  padding: 2em;
+	color: var(--title-text);
+	padding: 2em;
 }
 
 .more_info {
-  color: var(--title-text);
-  padding: 2em;
-  max-width: 85em;
-  margin: auto;
+	color: var(--title-text);
+	padding: 2em;
+	max-width: 85em;
+	margin: auto;
 }

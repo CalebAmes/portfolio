@@ -8,7 +8,6 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
 	const [messageEditor, setMessageEditor] = useState(false);
 	const [hover, setHover] = useState(false);
 
-	const userId = message.userId;
 	const user = message.User;
 	let messageImg;
 
@@ -49,9 +48,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
 
 	const editMessage = async (newMessage, id) => {
 		if (newMessage !== message.messageText) {
-			updateChannelMessage(newMessage, id).then(() => socket.emit('edit', channelId))
-	
-			
+			updateChannelMessage(newMessage, id).then(() => socket.emit('edit', channelId));
 		}
 		setMessageEditor(!messageEditor);
 	};
@@ -85,7 +82,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
 		<>
 			<div className="chatComponentDiv" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
 				<div className="post">
-					<img src={user?.avatar} alt='user avatar' className="avatar" onClick={closeCard} />
+					<img src={user?.avatar} alt="user avatar" className="avatar" onClick={closeCard} />
 					<div className="postMessage">
 						<div className="postInfo">
 							<div className="messageOrigin" onClick={closeCard}>
@@ -115,7 +112,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
 									{messageImg && (
 										<>
 											<div className="divImage" onClick={() => setOpen(!open)}>
-												<img src={messageImg} alt='sent in chat' className="messageImg" />
+												<img src={messageImg} alt="sent in chat" className="messageImg" />
 											</div>
 										</>
 									)}
@@ -130,7 +127,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
 				<>
 					<div className="modal">
 						<div className="modal-background" onClick={() => setOpen(!open)} />
-						<img src={messageImg} alt='sent in chat, enlarged' className="modal-content" />
+						<img src={messageImg} alt="sent in chat, enlarged" className="modal-content" />
 					</div>
 				</>
 			)}
