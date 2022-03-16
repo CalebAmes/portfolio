@@ -50,4 +50,5 @@
 .groupProjectButton {
 	font-size: 2em;
 	margin: auto;
+	background-color: var(--blue) !important
 }
