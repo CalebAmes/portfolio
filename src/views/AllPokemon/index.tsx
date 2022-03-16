@@ -65,6 +65,8 @@ const AllPokemon = () => {
 		themeHandler(theme);
 	}, [theme]);
 
+	console.log('this is a rerender ===')
+
 	const dontClick = { background: 'red', cursor: 'not-allowed' };
 
 	return (
