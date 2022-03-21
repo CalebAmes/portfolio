@@ -107,7 +107,7 @@ const spaceTexture = new THREE.TextureLoader().load(
       ThreeJs
       <h1>This is a test!</h1>
       <div ref={three} style={{ height: "1000px", width: "100vw" }} className="ThreeJS"></div>
-      <button onClick={() => resize(500, 500)}>Click me!</button>
+      <button onClick={resize}>Click me!</button>
     </div>
   );
 };
