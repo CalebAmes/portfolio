@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import MessageShrewdness from "./components/MessageShrewdness";
+import ThreeJs from "./components/ThreeJs";
 import AllPokemon from "./views/AllPokemon";
 
 function App() {
@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="three" element={<ThreeJs />} />
           <Route path="*" element={<AllPokemon />} />
-          <Route path="messageShrewdness" element={<MessageShrewdness />} />
         </Routes>
       </BrowserRouter>
     </div>
