@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "serve -s build",
-    "run": "react-scripts start",
+    "dev": "react-scripts start",
     "postinstall": "tsc",
     "build": "react-scripts build",
     "heroku-postbuild": "npm run build",

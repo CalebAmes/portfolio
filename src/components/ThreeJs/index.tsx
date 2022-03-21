@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as THREE from "three";
+
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -14,29 +16,38 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshStandardMaterial({
+  color: 0x00ff00,
+  wireframe: false,
+});
 const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+
+const pointLight = new THREE.PointLight(0xffffff);
+const ambientLight = new THREE.AmbientLight(0xffffff);
+
+// helpers for creating a scene
+const pointLightHelper = new THREE.PointLightHelper(pointLight);
+const gridHelper = new THREE.GridHelper(10, 10);
+
+pointLight.position.set(2, 2, 2);
+scene.add(cube, pointLight, pointLightHelper, gridHelper);
 
 camera.position.z = 5;
+
+// Orbit controls
+const controls = new OrbitControls(camera, renderer.domElement);
 
 function animate() {
   requestAnimationFrame(animate);
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
   renderer.render(scene, camera);
+  controls.update();
 }
 
 const ThreeJs = () => {
-  // const [load, setLoad] = useState(0);
-
   useEffect(() => {
-    // let interval = setInterval(() => {
-    //   console.log("interval ran");
-    //   setLoad(() => load + 1);
-    // }, 1000);
     animate();
-    // return () => clearInterval(interval);
   }, []);
 
   return (
