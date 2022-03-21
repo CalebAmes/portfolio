@@ -20,7 +20,7 @@ const projects = [
       "A clone of the popular site Instructables.com. Built to explore key features, like complex forms and dynamic DOM elements.",
     image: "/images/thumbs/02.gif",
     live: "https://instructables2.herokuapp.com/",
-    github: "https://github.com/calebames/instructables"
+    github: "https://github.com/calebames/instructables",
   },
   {
     name: "Program Hunt",
@@ -28,8 +28,8 @@ const projects = [
       "Influenced by Product Hunt, this light application allows users to share their favorite software.",
     image: "/images/thumbs/04.gif",
     live: "https://programhunt.herokuapp.com/",
-    github: "https://github.com/CalebAmes/ProgramHunt"
-  }
+    github: "https://github.com/CalebAmes/ProgramHunt",
+  },
 ];
 
 const AllPokemon = () => {
@@ -46,7 +46,7 @@ const AllPokemon = () => {
   };
 
   const fontAdjuster = {
-    fontSize: `${pageFontSize}pt`
+    fontSize: `${pageFontSize}pt`,
   };
 
   const changeTheme = (e: any) => {
@@ -62,14 +62,9 @@ const AllPokemon = () => {
     }
   }, []);
 
-  useEffect(
-    () => {
-      themeHandler(theme);
-    },
-    [theme]
-  );
-
-  console.log("this is a rerender ===");
+  useEffect(() => {
+    themeHandler(theme);
+  }, [theme]);
 
   const dontClick = { background: "red", cursor: "not-allowed" };
 
@@ -79,28 +74,28 @@ const AllPokemon = () => {
         <div className="buttonGroup">
           <button
             value="dark"
-            onClick={e => changeTheme(e)}
+            onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
             Dark
           </button>
           <button
             value="light"
-            onClick={e => changeTheme(e)}
+            onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
             Light
           </button>
           <button
             value="red"
-            onClick={e => changeTheme(e)}
+            onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
             Red
           </button>
           <button
             value="blue"
-            onClick={e => changeTheme(e)}
+            onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
             Blue
@@ -108,8 +103,8 @@ const AllPokemon = () => {
           <button
             style={pageFontSize >= 20 ? dontClick : {}}
             onClick={() =>
-              setPageFontSize(
-                () => (pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)
+              setPageFontSize(() =>
+                pageFontSize < 20 ? pageFontSize + 1 : pageFontSize
               )
             }
             className="styled_button"
@@ -119,8 +114,8 @@ const AllPokemon = () => {
           <button
             style={pageFontSize <= 6 ? dontClick : {}}
             onClick={() =>
-              setPageFontSize(
-                () => (pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)
+              setPageFontSize(() =>
+                pageFontSize > 6 ? pageFontSize - 1 : pageFontSize
               )
             }
             className="styled_button"
