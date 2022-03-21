@@ -19,6 +19,7 @@
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "scss": "^0.2.4",
+    "serve": "^13.0.2",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1",
     "ts-node": "^10.7.0",
@@ -26,7 +27,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
+    "run": "react-scripts start",
     "postinstall": "tsc",
     "build": "react-scripts build",
     "heroku-postbuild": "npm run build",
