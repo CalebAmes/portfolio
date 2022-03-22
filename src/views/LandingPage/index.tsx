@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import MessageShrewdness from "../../components/MessageShrewdness";
 import { CSSTransition } from "react-transition-group";
 import PokemonHolder from "../../components/PokemonHolder";
-import "./AllPokemon.scss";
+import "./LandingPage.scss";
 import Icons from "./icons";
 import { themeHandler } from "../../components/index";
 import Dice from "../../components/ThreeJs/dice";
@@ -34,7 +34,7 @@ const projects = [
   },
 ];
 
-const AllPokemon = () => {
+const LandingPage = () => {
   const [theme, setTheme] = useState<string>("galactic");
   const [pageFontSize, setPageFontSize] = useState<number>(12);
   const [showImg, setShowImg] = useState<boolean>(false);
@@ -72,7 +72,7 @@ const AllPokemon = () => {
   const dontClick = { background: "#ef233c", cursor: "not-allowed" };
 
   return (
-    <div style={fontAdjuster} className="allPokemonPage">
+    <div style={fontAdjuster} className="landingPage">
       <div className="topLeft">
         <div className="buttonGroup">
           <button
@@ -142,7 +142,7 @@ const AllPokemon = () => {
           </button>
         </div>
       </div>
-      <div className="allPokemonPage__title" />
+      <div className="landingPage__title" />
       <div className="caleb_card_container">
         <div className="caleb_card">
           <div className="caleb_card__text">
@@ -422,7 +422,7 @@ const AllPokemon = () => {
         </div>
       </div>
       <h3 className="styled_title showcase__title">Group Projects</h3>
-      <div className="allPokemonPage__grid">
+      <div className="landingPage__grid">
         {projects.map((el: Project, idx) => (
           <div key={idx}>
             <PokemonHolder
@@ -447,4 +447,4 @@ const AllPokemon = () => {
   );
 };
 
-export default AllPokemon;
+export default LandingPage;

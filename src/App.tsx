@@ -1,12 +1,12 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import AllPokemon from "./views/AllPokemon";
+import LandingPage from "./views/LandingPage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<AllPokemon />} />
+          <Route path="*" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </div>
