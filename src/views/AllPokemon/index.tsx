@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import MessageShrewdness from "../../components/MessageShrewdness";
+import { CSSTransition } from "react-transition-group";
 import PokemonHolder from "../../components/PokemonHolder";
 import "./AllPokemon.scss";
 import Icons from "./icons";
@@ -136,7 +137,7 @@ const AllPokemon = () => {
             <h2 className="caleb_card__text-title">Caleb Ames Gilbert...</h2>
             <Icons />
             <div className="myLinks">
-              <p>resume</p>
+              <p className="p">resume</p>
               <div className="buttonGroup">
                 <a
                   href="https://www.linkedin.com/in/caleb-gilbert-b522ab142/"
@@ -170,23 +171,36 @@ const AllPokemon = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="img-dice_div">
             <p>click me</p>
-            {showImg ? (
-              <img
-                src={process.env.PUBLIC_URL + "/me.jpeg"}
-                alt="Caleb"
-                className="caleb_card-profile-image"
-                onClick={() => setShowImg(() => !showImg)}
-              />
-            ) : (
-              <div
-                className="diceDiv"
-                onClick={() => setShowImg(() => !showImg)}
+            <div className="img-dice_inner_div">
+              <CSSTransition
+                in={showImg === true}
+                unmountOnExit
+                timeout={500}
+                classNames="img-dice"
               >
-                <Dice />
-              </div>
-            )}
+                <img
+                  src={process.env.PUBLIC_URL + "/me.jpeg"}
+                  alt="Caleb"
+                  className="caleb_card-profile-image"
+                  onClick={() => setShowImg(() => !showImg)}
+                />
+              </CSSTransition>
+              <CSSTransition
+                in={showImg === false}
+                unmountOnExit
+                timeout={500}
+                classNames="img-dice"
+              >
+                <div
+                  className="diceDiv"
+                  onClick={() => setShowImg(() => !showImg)}
+                >
+                  <Dice />
+                </div>
+              </CSSTransition>
+            </div>
           </div>
         </div>
       </div>
