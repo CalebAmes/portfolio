@@ -172,7 +172,14 @@ const AllPokemon = () => {
             </div>
           </div>
           <div className="img-dice_div">
-            <p>click me</p>
+            <div className="buttonGroup img-dice_div--button">
+              <button
+                className="styled_button"
+                onClick={() => setShowImg(() => !showImg)}
+              >
+                click me
+              </button>
+            </div>
             <div className="img-dice_inner_div">
               <CSSTransition
                 in={showImg === true}
@@ -193,10 +200,7 @@ const AllPokemon = () => {
                 timeout={500}
                 classNames="img-dice"
               >
-                <div
-                  className="diceDiv"
-                  onClick={() => setShowImg(() => !showImg)}
-                >
+                <div className="diceDiv">
                   <Dice />
                 </div>
               </CSSTransition>

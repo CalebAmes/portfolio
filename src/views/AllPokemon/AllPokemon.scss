@@ -46,8 +46,9 @@
 	justify-content: space-evenly;
 }
 
-.img-dice {
-	// transform: translateY(0% 0%);
+.img-dice_div--button {
+  align-self: center;
+  margin-right: 3em;
 }
 
 .img-dice-enter {
@@ -65,25 +66,6 @@
 
 .img-dice-exit-active {
   transform: translateY(300%);
-  transition: all var(--speed) ease;
-}
-
-.menu-secondary-enter {
-  position: absolute;
-  transform: translateY(-110%);
-}
-
-.menu-secondary-enter-active {
-  transform: translateX(0%);
-  transition: all var(--speed) ease;
-}
-
-.menu-secondary-exit {
-  position: absolute;
-}
-
-.menu-secondary-exit-active {
-  transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
 
@@ -243,6 +225,8 @@
   left: 1em;
   z-index: 10;
 }
+
+
 
 .bottomButton {
   width: fit-content;
