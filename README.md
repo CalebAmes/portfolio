@@ -1,6 +1,6 @@
 ### Thanks for checking out my portfolio repo!
 
-If you are interested in running this locally for whatever reason here is how you can do it
+If you are interested in running this locally, for whatever reason, here is how you can do it.
 
 - `cd` into the portfolio repo
 - `ls` to double check that you are in the root (you should see a package.json file)
