@@ -76,32 +76,39 @@ const AllPokemon = () => {
       <div className="topLeft">
         <div className="buttonGroup">
           <button
-            value="dark"
+            value="desolate"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
-            Dark
+            Desolate
           </button>
           <button
-            value="light"
+            value="galactic"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
-            Light
+            Galactic
           </button>
           <button
-            value="red"
+            value="classic"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
-            Red
+            Classic
           </button>
           <button
-            value="blue"
+            value="solaris"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
           >
-            Blue
+            Solaris
+          </button>
+          <button
+            value="altitude"
+            onClick={(e) => changeTheme(e)}
+            className="styled_button"
+          >
+            Altitude
           </button>
           <button
             style={pageFontSize >= 20 ? dontClick : {}}
@@ -134,7 +141,9 @@ const AllPokemon = () => {
       <div className="caleb_card_container">
         <div className="caleb_card">
           <div className="caleb_card__text">
-            <h2 className="caleb_card__text-title">Caleb Ames Gilbert...</h2>
+            <h2 className="caleb_card__text-title">
+              Hi. I'm Caleb and I like to code. Click some stuff.
+            </h2>
             <Icons />
             <div className="myLinks">
               <p className="p">resume</p>
@@ -219,7 +228,7 @@ const AllPokemon = () => {
           message and let's get the conversation started.
         </p>
       </div>
-      <h2 className="showcase__title">Shrewdness</h2>
+      <h2 className="showcase__title">This is Shrewdness.</h2>
       <div className="showcase">
         <div className="showcase__grid">
           <div className="showcase__grid-item">
@@ -302,7 +311,7 @@ const AllPokemon = () => {
           </div>
         </div>
         <div className="messageShrewdness__div">
-          <h3>Try it out here!</h3>
+          <h3>Try it out without leaving!</h3>
           <p>
             This is fully integrated with the Shrewdness socket and will allow
             you to interact with the Gorillas - General Channel
@@ -310,7 +319,7 @@ const AllPokemon = () => {
           <MessageShrewdness />
         </div>
       </div>
-      <h2 className="showcase__title">Sniffs</h2>
+      <h2 className="showcase__title">This is Sniffs.</h2>
       <div className="showcase reverseFlex">
         <div className="showcase__grid reverseGrid">
           <div className="showcase__grid-item">

@@ -77,6 +77,7 @@
   gap: 5em;
   margin: auto;
   padding: 3em 1em;
+  color: var(--showcase-color);
 }
 
 .showcase__title {
@@ -97,11 +98,11 @@
   padding-block: 2rem;
   width: min(95%, 50rem);
   margin-inline: auto;
-  color: var(--white);
+  color: var(--showcase-color);
 }
 
 .showcase__grid-item {
-  background: rgba(0, 0, 0, 0.5);
+  // background: rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
   transition: all ease-in-out 300ms;
   padding: 0.5em;
@@ -211,7 +212,7 @@
 }
 
 .showcase__link {
-  color: blue;
+  // color: blue;
   font-size: 1.2em;
 }
 
@@ -362,7 +363,7 @@
 }
 
 .styled_button:hover {
-  color: var(--body-background);
+  color: var(--button-hover-color);
 }
 
 .styled_button:hover::before {

@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Roboto Mono", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
 
   /* font-family: 'Smooch Sans', sans-serif; */
   -webkit-font-smoothing: antialiased;
@@ -15,40 +15,88 @@ body {
   --white: #fafffd;
   --orange: #fa824c;
   --red: red;
-  --user-card-background: #DFDED1;
+  --user-card-background: #dfded1;
   --body-background: var(--white);
   --title-text: var(--black);
   --button: var(--blue);
+  --button-hover-color: var(--body-background);
+  --showcase-color: var(--black);
+
+  // gradients
+  --galactic: linear-gradient(#001b29, #0a1128, #00264f);
+  --solaris: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(
+      127deg,
+      rgba(255, 145, 0, 0.863),
+      rgba(255, 255, 0, 0) 70.71%
+    ),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(255, 0, 0, 0) 70.71%);
+  --altitude: linear-gradient(#3c91e6, #fff, #006ee4);
 
   font-size: 16px;
   background: var(--body-background);
   transition: background ease-in-out 300ms;
-}
 
-.dark-background {
-  --body-background: var(--gray);
+  // I might change this
+  // this is to make the default Galactic
+  --body-background: var(--galactic);
+  --white: #fff;
   --title-text: var(--white);
+  --button-hover-color: #ef233c;
+  --showcase-color: var(--white);
 }
 
-.light-background {
+.desolate {
+  --body-background: var(--black);
+  --white: #efefef;
+  --title-text: var(--white);
+  --button-hover-color: var(--body-background);
+  --showcase-color: var(--white);
+}
+
+.galactic {
+  --body-background: var(--galactic);
+  --white: #fff;
+  --title-text: var(--white);
+  --button-hover-color: #ef233c;
+  --showcase-color: var(--white);
+}
+
+.solaris {
+  --body-background: var(--solaris);
+  --white: #fff;
+  --title-text: var(--black);
+  --button: var(--white);
+  --button-hover-color: #dc2f02;
+  --showcase-color: var(--black);
+}
+
+.altitude {
+  --body-background: var(--altitude);
+  --white: #fff;
+  --title-text: var(--black);
+  --button: var(--white);
+  --button-hover-color: #8d99ae;
+  --showcase-color: var(--black);
+}
+
+.classic {
   --body-background: var(--white);
-  --title-text: var(--black)
-}
-
-.red-background {
-  --body-background: var(--red);
-  --button: var(--gray);
-}
-
-.blue-background {
-  --body-background: var(--blue);
-  --button: var(--gray);
+  --white: #fafffd;
+  --title-text: var(--black);
+  --button: var(--black);
+  --button-hover-color: var(--body-background);
+  --showcase-color: var(--black);
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
-	height: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar:hover {
@@ -56,14 +104,14 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-	background: var(--body-background);
-	border-radius: 8px;
+  background: var(--body-background);
+  border-radius: 8px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--title-text);
-	border-radius: 8px;
+  border-radius: 8px;
 }
 
 /* Handle on hover */
@@ -90,72 +138,72 @@ img {
 }
 
 :root {
-	--bg: #fff;
-	--hover: #efefef;
-	--highlight: #beee62;
-	--bars: #483c46;
-	--color-main: #000;
-	--color-secondary: #483c46;
-	--color-accent: #f4743b;
-	--font-size: 14px;
-	--border-radius: 4px;
-	--speed: 500ms;
-	--border: 1px solid rgba(0, 0, 0, 0.2);
-	--nav-size: 48px;
+  --bg: #fff;
+  --hover: #efefef;
+  --highlight: #beee62;
+  --bars: #483c46;
+  --color-main: #000;
+  --color-secondary: #483c46;
+  --color-accent: #f4743b;
+  --font-size: 14px;
+  --border-radius: 4px;
+  --speed: 500ms;
+  --border: 1px solid rgba(0, 0, 0, 0.2);
+  --nav-size: 48px;
 }
 
 .main {
-	--bg: #fff;
-	--hover: #efefef;
-	--highlight: #beee62;
-	--bars: #483c46;
-	--color-main: #000;
-	--color-secondary: #483c46;
-	--color-accent: #f4743b;
+  --bg: #fff;
+  --hover: #efefef;
+  --highlight: #beee62;
+  --bars: #483c46;
+  --color-main: #000;
+  --color-secondary: #483c46;
+  --color-accent: #f4743b;
 }
 
 .darkmode {
-	--bg: #101e24;
-	--hover: #1a3038;
-	--highlight: #e63946;
-	--bars: #7ea7a8;
-	--color-main: rgb(190, 188, 188);
-	--color-secondary: #483c46;
-	--color-accent: #e63946;
+  --bg: #101e24;
+  --hover: #1a3038;
+  --highlight: #e63946;
+  --bars: #7ea7a8;
+  --color-main: rgb(190, 188, 188);
+  --color-secondary: #483c46;
+  --color-accent: #e63946;
 }
 
 .blue {
-	--bg: #1b263b;
-	--hover: #415a77;
-	--highlight: #0d1b2a;
-	--bars: #483c46;
-	--color-main: #e0e1dd;
-	--color-secondary: #887284;
-	--color-accent: #f4743b;
+  --bg: #1b263b;
+  --hover: #415a77;
+  --highlight: #0d1b2a;
+  --bars: #483c46;
+  --color-main: #e0e1dd;
+  --color-secondary: #887284;
+  --color-accent: #f4743b;
 }
 
 ul,
 li {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 link,
 div {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 // this is setup to let the user cards calculate height
 .chatMessages {
-	max-height: 200px;
-	min-height: 200px;
-	max-width: 200px;
-	overflow: scroll;
-	z-index: -1;
+  max-height: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  overflow: scroll;
+  z-index: -1;
 }

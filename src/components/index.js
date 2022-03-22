@@ -31,49 +31,67 @@ export const applyTheme = () => {
   if (userData && userData?.theme) {
     userData && userData.theme === "main"
       ? main()
-      : userData.theme === "darkmode" ? darkmode() : blue();
+      : userData.theme === "darkmode"
+      ? darkmode()
+      : blue();
   }
 };
 
-export const themeHandler = theme => {
+export const themeHandler = (theme) => {
   const body = document.body;
-  if (theme === "dark") {
-    body.classList.add("dark-background");
-    body.classList.remove("light-background");
-    body.classList.remove("red-background");
-    body.classList.remove("blue-background");
-    localStorage.setItem("portfolio", JSON.stringify({ theme: "dark" }));
-  } else if (theme === "light") {
-    body.classList.add("light-background");
-    body.classList.remove("dark-background");
-    body.classList.remove("red-background");
-    body.classList.remove("blue-background");
+  if (theme === "desolate") {
+    body.classList.add("desolate");
+    body.classList.remove("galactic");
+    body.classList.remove("solaris");
+    body.classList.remove("classic");
+    body.classList.remove("altitude");
+    localStorage.setItem("portfolio", JSON.stringify({ theme: "desolate" }));
+  } else if (theme === "galactic") {
+    body.classList.add("galactic");
+    body.classList.remove("desolate");
+    body.classList.remove("solaris");
+    body.classList.remove("altitude");
+    body.classList.remove("classic");
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "light"
+        theme: "galactic",
       })
     );
-  } else if (theme === "blue") {
-    body.classList.add("blue-background");
-    body.classList.remove("dark-background");
-    body.classList.remove("red-background");
-    body.classList.remove("light-background");
+  } else if (theme === "classic") {
+    body.classList.add("classic");
+    body.classList.remove("desolate");
+    body.classList.remove("solaris");
+    body.classList.remove("classic");
+    body.classList.remove("galactic");
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "blue"
+        theme: "classic",
       })
     );
-  } else if (theme === "red") {
-    body.classList.add("red-background");
-    body.classList.remove("dark-background");
-    body.classList.remove("blue-background");
-    body.classList.remove("light-background");
+  } else if (theme === "solaris") {
+    body.classList.add("solaris");
+    body.classList.remove("desolate");
+    body.classList.remove("altitude");
+    body.classList.remove("classic");
+    body.classList.remove("galactic");
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "red"
+        theme: "solaris",
+      })
+    );
+  } else if (theme === "altitude") {
+    body.classList.add("altitude");
+    body.classList.remove("desolate");
+    body.classList.remove("galactic");
+    body.classList.remove("classic");
+    body.classList.remove("solaris");
+    localStorage.setItem(
+      "portfolio",
+      JSON.stringify({
+        theme: "altitude",
       })
     );
   }
