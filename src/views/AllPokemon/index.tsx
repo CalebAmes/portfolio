@@ -4,6 +4,7 @@ import PokemonHolder from "../../components/PokemonHolder";
 import "./AllPokemon.scss";
 import Icons from "./icons";
 import { themeHandler } from "../../components/index";
+import Dice from "../../components/ThreeJs/dice";
 
 interface Project {
   name: string;
@@ -35,6 +36,7 @@ const projects = [
 const AllPokemon = () => {
   const [theme, setTheme] = useState<string>("light");
   const [pageFontSize, setPageFontSize] = useState<number>(12);
+  const [showImg, setShowImg] = useState<boolean>(false);
   const bottom = useRef<any>(null);
 
   const scrollTop = () => {
@@ -168,11 +170,24 @@ const AllPokemon = () => {
               </div>
             </div>
           </div>
-          <img
-            src={process.env.PUBLIC_URL + "/me.jpeg"}
-            alt="Caleb"
-            className="caleb_card-profile-image"
-          />
+          <div>
+            <p>click me</p>
+            {showImg ? (
+              <img
+                src={process.env.PUBLIC_URL + "/me.jpeg"}
+                alt="Caleb"
+                className="caleb_card-profile-image"
+                onClick={() => setShowImg(() => !showImg)}
+              />
+            ) : (
+              <div
+                className="diceDiv"
+                onClick={() => setShowImg(() => !showImg)}
+              >
+                <Dice />
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <div className="more_info">

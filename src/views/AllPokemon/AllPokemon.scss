@@ -120,6 +120,12 @@
 		mix-blend-mode: darken;
 		border-radius: 1em;
 	}
+	
+	.diceDiv {
+		max-width: 20em;
+		height: 20em;
+	}
+
 	.caleb_card__text {
 		display: flex;
 		flex-direction: column;
@@ -135,6 +141,15 @@
 			color: var(--black);
 		}
 	}
+}
+
+.diceDiv, .caleb_card-profile-image {
+	transition: all ease-in-out 300ms;
+}
+
+.diceDiv:hover, .caleb_card-profile-image:hover {
+	cursor: pointer;
+	filter: brightness(0.7);
 }
 
 .myLinks {
