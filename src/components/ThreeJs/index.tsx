@@ -43,11 +43,11 @@ function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
   const material = new THREE.MeshStandardMaterial({ color: 0xfffffff });
   const star = new THREE.Mesh(geometry, material);
-  
+
   const [x, y, z] = Array(3)
-  .fill()
-  .map(() => THREE.MathUtils.randFloatSpread(100));
-  
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+
   star.position.set(x, y, z);
   scene.add(star);
 }
@@ -57,56 +57,60 @@ Array(200).fill().forEach(addStar);
 // adding background to the scene
 const spaceTexture = new THREE.TextureLoader().load(
   process.env.PUBLIC_URL + "/me.jpeg"
-  );
-  scene.background = spaceTexture;
-  
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-    controls.update();
-  }
-  
-  const ThreeJs = () => {
-    const [dimensions, setDimensions] = useState({
-      width: 0,
-      height: 0,
-    })
+);
+scene.background = spaceTexture;
 
-    const three = useRef(null);
-    const resize = () => {
-      // setTimeout(() => 
-      //   setDimensions({
-      //     width: three.current.clientWidth,
-      //     height: three.current.clientHeight,
-      // }))
-        setDimensions({
-          width: three.current.clientWidth,
-          height: three.current.clientHeight,
-      })
-    }
-    
-    useEffect(() => {
-      three.current.appendChild(renderer.domElement)
-      animate();
-      resize();
-      
-      return () => three.current.removeChild(renderer.domElement)
-    }, []);
-    
-    useEffect(() => {
-      window.addEventListener('resize', resize)
-      renderer.setSize(dimensions.width, dimensions.height);
-    }, [dimensions])
-    
-    console.dir(dimensions)
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render(scene, camera);
+  controls.update();
+}
 
-    return (
-      <div>
+const ThreeJs = () => {
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  const three = useRef(null);
+  const resize = () => {
+    // setTimeout(() =>
+    //   setDimensions({
+    //     width: three.current.clientWidth,
+    //     height: three.current.clientHeight,
+    // }))
+    setDimensions({
+      width: three.current.clientWidth,
+      height: three.current.clientHeight,
+    });
+  };
+
+  useEffect(() => {
+    three.current.appendChild(renderer.domElement);
+    animate();
+    resize();
+
+    return () => three.current.removeChild(renderer.domElement);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", resize);
+    renderer.setSize(dimensions.width, dimensions.height);
+  }, [dimensions]);
+
+  console.dir(dimensions);
+
+  return (
+    <div>
       ThreeJs
       <h1>This is a test!</h1>
-      <div ref={three} style={{ height: "1000px", width: "100vw" }} className="ThreeJS"></div>
+      <div
+        ref={three}
+        style={{ height: "1000px", width: "100vw" }}
+        className="ThreeJS"
+      ></div>
       <button onClick={resize}>Click me!</button>
     </div>
   );

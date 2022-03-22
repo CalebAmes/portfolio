@@ -38,8 +38,6 @@ export const applyTheme = () => {
 };
 
 export const themeHandler = (theme) => {
-  console.log('theme => ', theme)
-
   const body = document.body;
   if (theme === "desolate") {
     body.classList.add("desolate");
@@ -64,7 +62,7 @@ export const themeHandler = (theme) => {
     body.classList.add("classic");
     body.classList.remove("desolate");
     body.classList.remove("solaris");
-    body.classList.remove("classic");
+    body.classList.remove("altitude");
     body.classList.remove("galactic");
     localStorage.setItem(
       "portfolio",

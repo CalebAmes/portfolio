@@ -27,23 +27,23 @@
 }
 
 .img-dice_div {
-	min-width: 30%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	p {
-		color: var(--black);
-		text-align: center;
-		margin-right: 5em;
-	}
+  min-width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  p {
+    color: var(--black);
+    text-align: center;
+    margin-right: 5em;
+  }
 }
 
 .img-dice_inner_div {
-	height: 25em;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+  height: 25em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .img-dice_div--button {
@@ -69,6 +69,94 @@
   transition: all var(--speed) ease;
 }
 
+.more_info {
+  p {
+    margin-top: 4em;
+    font-weight: 800;
+  }
+}
+
+.bio_title {
+  margin-bottom: 1em;
+}
+
+.styled_title {
+  text-align: end;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  font-weight: bolder;
+  color: var(--button-hover-color);
+  position: relative;
+}
+
+.styled_title::after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -0.9em;
+  left: 0;
+  right: 0;
+  border-bottom: 0.6em solid var(--button-hover-color);
+}
+
+.styled_title::before {
+  position: absolute;
+  right: 0;
+  bottom: -0.3em;
+  left: 0;
+  display: block;
+  margin-bottom: 0.15em;
+  content: "";
+  border-bottom: 0.15em solid var(--button-hover-color);
+}
+
+.styled_sub_title {
+  color: var(--button-hover-color);
+  position: relative;
+  margin: 1em auto;
+}
+
+.styled_sub_title::after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -0.3em;
+  left: 0;
+  right: 0.2em;
+  border-bottom: 0.2em solid var(--button-hover-color);
+}
+
+.bio_div-stats {
+  text-align: left;
+  margin: 7em auto;
+  max-width: min(90vw, 40em);
+
+  p {
+    margin-bottom: 0.9em;
+    font-weight: 1000;
+  }
+
+  b {
+    color: var(--button-hover-color);
+    position: relative;
+  }
+
+  b::after {
+    position: absolute;
+    display: block;
+    content: "";
+    bottom: -0.3em;
+    left: 0;
+    right: 0.2em;
+    border-bottom: 0.2em solid var(--button-hover-color);
+  }
+
+  li {
+    margin-left: 2.5em;
+    margin-top: 0.7em;
+  }
+}
+
 .showcase {
   display: flex;
   flex-direction: column;
@@ -81,8 +169,8 @@
 }
 
 .showcase__title {
-  font-size: 2em;
-  margin-top: 2em;
+  margin: 2em auto;
+  max-width: min(90vw, 40em);
 }
 
 .showcase__grid {
@@ -102,10 +190,30 @@
 }
 
 .showcase__grid-item {
-  // background: rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
   transition: all ease-in-out 300ms;
   padding: 0.5em;
+
+  h3 {
+    color: var(--button-hover-color);
+    position: relative;
+    margin-bottom: 1em;
+  }
+
+  h3::after {
+    position: absolute;
+    display: block;
+    content: "";
+    bottom: -0.3em;
+    left: 0;
+    right: 0.2em;
+    border-bottom: 0.2em solid var(--button-hover-color);
+  }
+
+  li,
+  p {
+    font-weight: 800;
+  }
 }
 
 .showcase__grid-item li {
@@ -158,7 +266,7 @@
   justify-content: center;
   align-items: center;
   gap: 2em;
-	overflow: hidden;
+  overflow: hidden;
 
   .caleb_card-profile-image {
     max-width: 20em;
@@ -227,8 +335,6 @@
   z-index: 10;
 }
 
-
-
 .bottomButton {
   width: fit-content;
   margin: auto;
@@ -254,6 +360,8 @@
   overflow-wrap: break-word;
   p {
     max-width: 40em;
+    margin: 1em auto;
+    font-weight: 800;
   }
 }
 

@@ -69,7 +69,7 @@ const AllPokemon = () => {
     themeHandler(theme);
   }, [theme]);
 
-  const dontClick = { background: "red", cursor: "not-allowed" };
+  const dontClick = { background: "#ef233c", cursor: "not-allowed" };
 
   return (
     <div style={fontAdjuster} className="allPokemonPage">
@@ -233,7 +233,36 @@ const AllPokemon = () => {
           message and let's get the conversation started.
         </p>
       </div>
-      <h2 className="showcase__title">This is Shrewdness.</h2>
+      <div className="bio_div-stats">
+        <h3 className="styled_title">Caleb Rene Ames Gilbert</h3>
+        <p>
+          <b>OCCUPATION:</b> Web Development Instructor @ App Academy
+        </p>
+        <p>
+          <b>HOMETOWN:</b> Gulf Breeze, Fl
+        </p>
+        <p>
+          <b>BORN:</b> May the 2nd, 1997
+        </p>
+        <p>
+          <b>FAVORITE LANGUAGE:</b> JavaScript / TypeScript
+        </p>
+        <p>
+          <b>CURRENTLY LEARNING:</b> vim / tmux / threeJS
+        </p>
+        <p>
+          <b>RANDOM FACTS:</b>
+          <ul>
+            <li>Left Handed</li>
+            <li>Double Aortic Arch Survivor</li>
+            <li>Avid Climber</li>
+            <li>Dog (Luna) and Cat (Olive)</li>
+            <li>5 siblings</li>
+          </ul>
+        </p>
+      </div>
+
+      <h2 className="showcase__title styled_title">This is Shrewdness.</h2>
       <div className="showcase">
         <div className="showcase__grid">
           <div className="showcase__grid-item">
@@ -316,7 +345,7 @@ const AllPokemon = () => {
           </div>
         </div>
         <div className="messageShrewdness__div">
-          <h3>Try it out without leaving!</h3>
+          <h3 className="styled_sub_title">Try it out without leaving!</h3>
           <p>
             This is fully integrated with the Shrewdness socket and will allow
             you to interact with the Gorillas - General Channel
@@ -324,7 +353,7 @@ const AllPokemon = () => {
           <MessageShrewdness />
         </div>
       </div>
-      <h2 className="showcase__title">This is Sniffs.</h2>
+      <h2 className="styled_title showcase__title">This is Sniffs.</h2>
       <div className="showcase reverseFlex">
         <div className="showcase__grid reverseGrid">
           <div className="showcase__grid-item">
@@ -384,7 +413,7 @@ const AllPokemon = () => {
           </div>
         </div>
         <div className="showcase__image-div">
-          <h3>Take a look!</h3>
+          <h3 className="styled_sub_title">Take a look!</h3>
           <img
             className="showcase__image"
             src={process.env.PUBLIC_URL + "/images/thumbs/03.gif"}
@@ -392,7 +421,7 @@ const AllPokemon = () => {
           />
         </div>
       </div>
-      <h3>Group Projects</h3>
+      <h3 className="styled_title showcase__title">Group Projects</h3>
       <div className="allPokemonPage__grid">
         {projects.map((el: Project, idx) => (
           <div key={idx}>
