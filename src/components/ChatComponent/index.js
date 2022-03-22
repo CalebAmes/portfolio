@@ -15,21 +15,21 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
     setCard(!card);
   };
 
-  const deleteChannelMessage = async (channelMessageId) => {
+  const deleteChannelMessage = async channelMessageId => {
     const res = await fetch(
       `https://shrewdness.herokuapp.com/api/channelMessages/${channelMessageId}/delete`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          id: channelMessageId,
-        }),
+          id: channelMessageId
+        })
       }
     );
     return res;
   };
 
-  const deleteMessage = async (id) => {
+  const deleteMessage = async id => {
     await deleteChannelMessage(id);
     socket.emit("edit", channelId);
   };
@@ -42,8 +42,8 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id,
-          messageText: newMessage,
-        }),
+          messageText: newMessage
+        })
       }
     );
     if (res.ok) {
@@ -63,18 +63,18 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
 
   const EditMessage = ({ func }) => {
     const [value, setValue] = useState(message.messageText);
-    const keyPress = (e) => {
+    const keyPress = e => {
       if (e.key === "Enter") {
         e.preventDefault();
         func(value, message.id);
-        setHover(false)
+        setHover(false);
       }
     };
     return (
       <div className="editMessageInputDiv">
         <textarea
           maxLength="140"
-          onChange={(e) => setValue(e.target.value)}
+          onChange={e => setValue(e.target.value)}
           onKeyPress={keyPress}
           value={value}
           className="messageInputTextarea"
@@ -114,22 +114,23 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
                   <p>edited at {message.updatedAt}</p>
                 )}
               </div>
-              {user?.id === currentUserId && hover && (
-                <div className="editMessage">
-                  <div
-                    className="deleteMessageButton"
-                    onClick={() => deleteMessage(message.id)}
-                  >
-                    <i className="fas fa-trash-alt" />
+              {user?.id === currentUserId &&
+                hover && (
+                  <div className="editMessage">
+                    <div
+                      className="deleteMessageButton"
+                      onClick={() => deleteMessage(message.id)}
+                    >
+                      <i className="fas fa-trash-alt" />
+                    </div>
+                    <div
+                      className="editMessageButton"
+                      onClick={() => editMessage()}
+                    >
+                      <i className="fas fa-edit" />
+                    </div>
                   </div>
-                  <div
-                    className="editMessageButton"
-                    onClick={() => editMessage()}
-                  >
-                    <i className="fas fa-edit" />
-                  </div>
-                </div>
-              )}
+                )}
             </div>
             {!messageEditor && (
               <>

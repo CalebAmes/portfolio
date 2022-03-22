@@ -403,12 +403,11 @@
 }
 
 @media screen and (min-width: 50em) {
-  
-.topLeft {
-  top: 1em;
-  left: 1em;
-}
-  
+  .topLeft {
+    top: 1em;
+    left: 1em;
+  }
+
   .showcase__grid {
     grid-template-areas:
       "one two three"

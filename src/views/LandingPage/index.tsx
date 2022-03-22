@@ -22,7 +22,7 @@ const projects = [
       "A clone of the popular site Instructables.com. Built to explore key features, like complex forms and dynamic DOM elements.",
     image: "/images/thumbs/02.gif",
     live: "https://instructables2.herokuapp.com/",
-    github: "https://github.com/calebames/instructables",
+    github: "https://github.com/calebames/instructables"
   },
   {
     name: "Program Hunt",
@@ -30,8 +30,8 @@ const projects = [
       "Influenced by Product Hunt, this light application allows users to share their favorite software.",
     image: "/images/thumbs/04.gif",
     live: "https://programhunt.herokuapp.com/",
-    github: "https://github.com/CalebAmes/ProgramHunt",
-  },
+    github: "https://github.com/CalebAmes/ProgramHunt"
+  }
 ];
 
 const LandingPage = () => {
@@ -49,7 +49,7 @@ const LandingPage = () => {
   };
 
   const fontAdjuster = {
-    fontSize: `${pageFontSize}pt`,
+    fontSize: `${pageFontSize}pt`
   };
 
   const changeTheme = (e: any) => {
@@ -65,9 +65,12 @@ const LandingPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    themeHandler(theme);
-  }, [theme]);
+  useEffect(
+    () => {
+      themeHandler(theme);
+    },
+    [theme]
+  );
 
   const dontClick = { background: "#ef233c", cursor: "not-allowed" };
 
@@ -78,7 +81,7 @@ const LandingPage = () => {
           <button
             style={theme === "desolate" ? dontClick : {}}
             value="desolate"
-            onClick={(e) => changeTheme(e)}
+            onClick={e => changeTheme(e)}
             className="styled_button"
           >
             Desolate
@@ -86,7 +89,7 @@ const LandingPage = () => {
           <button
             style={theme === "galactic" ? dontClick : {}}
             value="galactic"
-            onClick={(e) => changeTheme(e)}
+            onClick={e => changeTheme(e)}
             className="styled_button"
           >
             Galactic
@@ -94,7 +97,7 @@ const LandingPage = () => {
           <button
             style={theme === "classic" ? dontClick : {}}
             value="classic"
-            onClick={(e) => changeTheme(e)}
+            onClick={e => changeTheme(e)}
             className="styled_button"
           >
             Classic
@@ -102,7 +105,7 @@ const LandingPage = () => {
           <button
             style={theme === "solaris" ? dontClick : {}}
             value="solaris"
-            onClick={(e) => changeTheme(e)}
+            onClick={e => changeTheme(e)}
             className="styled_button"
           >
             Solaris
@@ -110,7 +113,7 @@ const LandingPage = () => {
           <button
             style={theme === "altitude" ? dontClick : {}}
             value="altitude"
-            onClick={(e) => changeTheme(e)}
+            onClick={e => changeTheme(e)}
             className="styled_button"
           >
             Altitude
@@ -118,8 +121,8 @@ const LandingPage = () => {
           <button
             style={pageFontSize >= 20 ? dontClick : {}}
             onClick={() =>
-              setPageFontSize(() =>
-                pageFontSize < 20 ? pageFontSize + 1 : pageFontSize
+              setPageFontSize(
+                () => (pageFontSize < 20 ? pageFontSize + 1 : pageFontSize)
               )
             }
             className="styled_button"
@@ -129,8 +132,8 @@ const LandingPage = () => {
           <button
             style={pageFontSize <= 6 ? dontClick : {}}
             onClick={() =>
-              setPageFontSize(() =>
-                pageFontSize > 6 ? pageFontSize - 1 : pageFontSize
+              setPageFontSize(
+                () => (pageFontSize > 6 ? pageFontSize - 1 : pageFontSize)
               )
             }
             className="styled_button"

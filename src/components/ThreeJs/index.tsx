@@ -19,7 +19,7 @@ const renderer = new THREE.WebGLRenderer();
 const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshStandardMaterial({
   color: 0x00ff00,
-  wireframe: false,
+  wireframe: false
 });
 const cube = new THREE.Mesh(geometry, material);
 
@@ -52,7 +52,9 @@ function addStar() {
   scene.add(star);
 }
 
-Array(200).fill().forEach(addStar);
+Array(200)
+  .fill()
+  .forEach(addStar);
 
 // adding background to the scene
 const spaceTexture = new THREE.TextureLoader().load(
@@ -71,7 +73,7 @@ function animate() {
 const ThreeJs = () => {
   const [dimensions, setDimensions] = useState({
     width: 0,
-    height: 0,
+    height: 0
   });
 
   const three = useRef(null);
@@ -83,7 +85,7 @@ const ThreeJs = () => {
     // }))
     setDimensions({
       width: three.current.clientWidth,
-      height: three.current.clientHeight,
+      height: three.current.clientHeight
     });
   };
 
@@ -95,10 +97,13 @@ const ThreeJs = () => {
     return () => three.current.removeChild(renderer.domElement);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("resize", resize);
-    renderer.setSize(dimensions.width, dimensions.height);
-  }, [dimensions]);
+  useEffect(
+    () => {
+      window.addEventListener("resize", resize);
+      renderer.setSize(dimensions.width, dimensions.height);
+    },
+    [dimensions]
+  );
 
   console.dir(dimensions);
 
@@ -110,7 +115,7 @@ const ThreeJs = () => {
         ref={three}
         style={{ height: "1000px", width: "100vw" }}
         className="ThreeJS"
-      ></div>
+      />
       <button onClick={resize}>Click me!</button>
     </div>
   );

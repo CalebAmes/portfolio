@@ -10,9 +10,9 @@ interface ProjectDetails {
   live: string;
 }
 
-const PokemonHolder: React.FC<ProjectDetails> = (props) => {
+const PokemonHolder: React.FC<ProjectDetails> = props => {
   const animationDelay = {
-    animationDelay: `${props.count}00ms`,
+    animationDelay: `${props.count}00ms`
   };
 
   return (

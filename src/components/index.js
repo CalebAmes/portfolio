@@ -31,13 +31,11 @@ export const applyTheme = () => {
   if (userData && userData?.theme) {
     userData && userData.theme === "main"
       ? main()
-      : userData.theme === "darkmode"
-      ? darkmode()
-      : blue();
+      : userData.theme === "darkmode" ? darkmode() : blue();
   }
 };
 
-export const themeHandler = (theme) => {
+export const themeHandler = theme => {
   const body = document.body;
   if (theme === "desolate") {
     body.classList.add("desolate");
@@ -55,7 +53,7 @@ export const themeHandler = (theme) => {
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "galactic",
+        theme: "galactic"
       })
     );
   } else if (theme === "classic") {
@@ -67,7 +65,7 @@ export const themeHandler = (theme) => {
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "classic",
+        theme: "classic"
       })
     );
   } else if (theme === "solaris") {
@@ -79,7 +77,7 @@ export const themeHandler = (theme) => {
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "solaris",
+        theme: "solaris"
       })
     );
   } else if (theme === "altitude") {
@@ -91,7 +89,7 @@ export const themeHandler = (theme) => {
     localStorage.setItem(
       "portfolio",
       JSON.stringify({
-        theme: "altitude",
+        theme: "altitude"
       })
     );
   }

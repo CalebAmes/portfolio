@@ -24,13 +24,13 @@ const MessageShrewdness = () => {
   useEffect(() => {
     seedAutoComplete();
 
-    socket.on(`chat_message_1`, (msg) => {
-      fetchMessages().then((res) => setMessages(() => res));
+    socket.on(`chat_message_1`, msg => {
+      fetchMessages().then(res => setMessages(() => res));
     });
     socket.on(`edit_channel_1`, async () => {
-      fetchMessages().then((res) => setMessages(() => res));
+      fetchMessages().then(res => setMessages(() => res));
     });
-    fetchMessages().then((res) => setMessages(() => res));
+    fetchMessages().then(res => setMessages(() => res));
 
     applyTheme();
   }, []);
