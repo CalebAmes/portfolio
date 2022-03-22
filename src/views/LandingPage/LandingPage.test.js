@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import AllPokemon from "./index";
+import LandingPage from "./index";
 
 test("App renders", () => {
-  render(<AllPokemon />);
+  render(<LandingPage />);
 });
