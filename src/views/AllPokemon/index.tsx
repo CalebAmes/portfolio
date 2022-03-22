@@ -35,7 +35,7 @@ const projects = [
 ];
 
 const AllPokemon = () => {
-  const [theme, setTheme] = useState<string>("light");
+  const [theme, setTheme] = useState<string>("galactic");
   const [pageFontSize, setPageFontSize] = useState<number>(12);
   const [showImg, setShowImg] = useState<boolean>(false);
   const bottom = useRef<any>(null);
@@ -76,6 +76,7 @@ const AllPokemon = () => {
       <div className="topLeft">
         <div className="buttonGroup">
           <button
+            style={theme === "desolate" ? dontClick : {}}
             value="desolate"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
@@ -83,6 +84,7 @@ const AllPokemon = () => {
             Desolate
           </button>
           <button
+            style={theme === "galactic" ? dontClick : {}}
             value="galactic"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
@@ -90,6 +92,7 @@ const AllPokemon = () => {
             Galactic
           </button>
           <button
+            style={theme === "classic" ? dontClick : {}}
             value="classic"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
@@ -97,6 +100,7 @@ const AllPokemon = () => {
             Classic
           </button>
           <button
+            style={theme === "solaris" ? dontClick : {}}
             value="solaris"
             onClick={(e) => changeTheme(e)}
             className="styled_button"
@@ -104,6 +108,7 @@ const AllPokemon = () => {
             Solaris
           </button>
           <button
+            style={theme === "altitude" ? dontClick : {}}
             value="altitude"
             onClick={(e) => changeTheme(e)}
             className="styled_button"

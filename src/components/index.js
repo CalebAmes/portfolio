@@ -38,6 +38,8 @@ export const applyTheme = () => {
 };
 
 export const themeHandler = (theme) => {
+  console.log('theme => ', theme)
+
   const body = document.body;
   if (theme === "desolate") {
     body.classList.add("desolate");

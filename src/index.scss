@@ -40,14 +40,6 @@ body {
   font-size: 16px;
   background: var(--body-background);
   transition: background ease-in-out 300ms;
-
-  // I might change this
-  // this is to make the default Galactic
-  --body-background: var(--galactic);
-  --white: #fff;
-  --title-text: var(--white);
-  --button-hover-color: #ef233c;
-  --showcase-color: var(--white);
 }
 
 .desolate {
@@ -85,8 +77,8 @@ body {
 }
 
 .classic {
-  --body-background: var(--white);
   --white: #fafffd;
+  --body-background: var(--white);
   --title-text: var(--black);
   --button: var(--black);
   --button-hover-color: var(--body-background);
