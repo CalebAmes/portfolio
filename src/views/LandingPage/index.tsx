@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import MessageShrewdness from "../../components/MessageShrewdness";
 import { CSSTransition } from "react-transition-group";
-import PokemonHolder from "../../components/PokemonHolder";
+import ProjectHolder from "../../components/ProjectHolder";
 import "./LandingPage.scss";
 import Icons from "./icons";
 import { themeHandler } from "../../components/index";
@@ -52,7 +52,7 @@ const LandingPage = () => {
     fontSize: `${pageFontSize}pt`,
   };
 
-  const changeTheme = (e: any) => {
+  const changeTheme = (e: string) => {
     setTheme(e.target.value);
   };
 
@@ -425,7 +425,7 @@ const LandingPage = () => {
       <div className="landingPage__grid">
         {projects.map((el: Project, idx) => (
           <div key={idx}>
-            <PokemonHolder
+            <ProjectHolder
               name={el.name}
               details={el.details}
               image={el.image}

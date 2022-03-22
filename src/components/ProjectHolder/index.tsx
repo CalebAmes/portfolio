@@ -1,5 +1,5 @@
 import React from "react";
-import "./PokemonHolder.css";
+import "./ProjectHolder.css";
 
 interface ProjectDetails {
   name: string;
@@ -10,23 +10,23 @@ interface ProjectDetails {
   live: string;
 }
 
-const PokemonHolder: React.FC<ProjectDetails> = (props) => {
+const ProjectHolder: React.FC<ProjectDetails> = props => {
   const animationDelay = {
-    animationDelay: `${props.count}00ms`,
+    animationDelay: `${props.count}00ms`
   };
 
   return (
-    <div className="pokemonCard" style={animationDelay}>
-      <div className="pokemonCard__image">
+    <div className="projectCard" style={animationDelay}>
+      <div className="projectCard__image">
         <img
-          className="pokemonCard__image-image"
+          className="projectCard__image-image"
           src={process.env.PUBLIC_URL + props.image}
           alt=""
         />
       </div>
-      <div className="pokemonCard__info">
-        <h1 className="pokemonCard__info-name">{props.name}</h1>
-        <p className="pokemonCard__info-details">{props.details}</p>
+      <div className="projectCard__info">
+        <h1 className="projectCard__info-name">{props.name}</h1>
+        <p className="projectCard__info-details">{props.details}</p>
         <div className="buttonGroup groupProjectButton">
           <a
             href={props.github}
@@ -42,4 +42,4 @@ const PokemonHolder: React.FC<ProjectDetails> = (props) => {
   );
 };
 
-export default PokemonHolder;
+export default ProjectHolder;

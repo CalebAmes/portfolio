@@ -1,4 +1,4 @@
-.pokemonCard {
+.projectCard {
   transform: translateX(100vw);
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   transition: all ease-in-out 0.3s;
 }
 
-.pokemonCard:hover {
+.projectCard:hover {
   filter: brightness(1.3);
 }
 
@@ -24,7 +24,7 @@
   }
 }
 
-.pokemonCard__image {
+.projectCard__image {
   background-color: var(--button-hover-color);
   display: flex;
   justify-content: center;
@@ -34,11 +34,11 @@
   overflow: hidden;
 }
 
-.pokemonCard__image-image {
+.projectCard__image-image {
   max-width: 100%;
 }
 
-.pokemonCard__info {
+.projectCard__info {
   font-size: 0.8em;
   display: flex;
   gap: 1em;

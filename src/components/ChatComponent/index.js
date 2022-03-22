@@ -67,6 +67,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
       if (e.key === "Enter") {
         e.preventDefault();
         func(value, message.id);
+        setHover(false);
       }
     };
     return (
@@ -78,7 +79,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
           value={value}
           className="messageInputTextarea"
         >
-          {message.messageText}
+          {value}
         </textarea>
       </div>
     );
@@ -91,7 +92,7 @@ const ChatComponent = ({ message, channelId = 1, currentUserId = 1 }) => {
       <div
         className="chatComponentDiv"
         onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseLeave={!messageEditor ? () => setHover(false) : () => {}}
       >
         <div className="post">
           <img
