@@ -1,5 +1,5 @@
 ### Thanks for checking out my portfolio repo!
-## <a href="https://calebames.herokuapp.com"><b>LIVE LINK</b></a>
+## <a href="https://www.calebames.com"><b>LIVE LINK</b></a>
 
 If you are interested in running this locally, for whatever reason, here is how you can do it.
 
